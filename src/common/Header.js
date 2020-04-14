@@ -1,11 +1,23 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { Nav, Navbar } from 'react-bootstrap';
+import { useHistory } from 'react-router-dom';
 import logo from '../logo.png';
 
-const Header = () => {
+const Header = ({ ...props }) => {
   const activeStyle = { color: '#9A272E' };
+  const history = useHistory();
 
+  const [count, setCount] = useState(0);
+  console.log(props);
+  function req(event) {
+    event.preventDefault();
+    if (count === 7) {
+      history.push('/checkin');
+    } else {
+      setCount(count + 1);
+    }
+  }
   return (
     <Navbar
       id="mynav"
@@ -20,14 +32,15 @@ const Header = () => {
       <Navbar.Collapse>
         <Nav className="mr-auto">
           <Nav.Item>
-            <NavLink
-              to="/"
+            <p
+              to="#"
               className="nav-link"
               activeStyle={activeStyle}
               exact
+              onClick={req}
             >
               Checkout
-            </NavLink>
+            </p>
           </Nav.Item>
           <Nav.Item>
             <NavLink to="/idioma" className="nav-link" exact>

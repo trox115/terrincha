@@ -48,11 +48,7 @@ function EncomendarPage() {
         <Col lg="4" md="6" mb="4">
           <div className="card h-100">
             <a href="#">
-              <img
-                className="card-img-top"
-                src="http://placehold.it/700x400"
-                alt=""
-              />
+              <img className="card-img-top" src="/mel.jpg" alt="" />
             </a>
             <div className="card-body">
               <h4 className="card-title">
@@ -60,7 +56,7 @@ function EncomendarPage() {
               </h4>
               <h5>15€</h5>
               <p className="card-text">
-                Mel de folha dee laranjeira da quinta da terrincha!
+                Mel de folha dee laranjeiro da quinta da terrincha!
               </p>
             </div>
             <div className="card-footer">

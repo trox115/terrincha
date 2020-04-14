@@ -49,6 +49,7 @@ function NavegacaoPage({ ...props }) {
   }
 
   function handleClick3() {
+    b.style.display = 'block';
     props.history.goBack();
   }
 
