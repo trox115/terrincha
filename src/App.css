@@ -21,3 +21,11 @@ figcaption{
 #full-image3{
   display:none;
 }
+
+.bg-light{
+  height:140px;
+}
+
+.navbar-brand img{
+  height: 130px;
+}
