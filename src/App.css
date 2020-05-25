@@ -35,3 +35,12 @@ figcaption{
 .navbar-brand img{
   height: 130px;
 }
+
+footer{
+  height: 100px;
+  background: white;
+}
+
+#zsiq_float{
+  display:none;
+}

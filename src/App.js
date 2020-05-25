@@ -6,7 +6,7 @@ import EncomendarPage from './EncomendarPage/EncomendarPage';
 import NavegacaoPage from './NavegacaoPage/NavegacaoPage';
 import Wifi from './Wifi/wifi';
 import CheckIn from './CheckIn/CheckIn';
-import Header from './common/Header';
+import Footer from './common/Footer';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -21,6 +21,7 @@ function App() {
         <Route exact path="/navegacao" component={NavegacaoPage} />
         <Route exact path="/contactos" component={ContactosUteis} />
       </Switch>
+      <Footer />
     </>
   );
 }
