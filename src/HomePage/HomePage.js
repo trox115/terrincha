@@ -3,48 +3,80 @@ import Container from 'react-bootstrap/Container';
 import { Link } from 'react-router-dom';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import navegacao from '../navegacao.svg';
-import menus from '../menus.svg';
-import comprar from '../comprar.svg';
-import wifi from '../wifi.svg';
-import atividades from '../atividades.svg';
-import info from '../info.svg';
+import {Cartao,Header} from '../style.js';
+import Navegacao from '../assets/img/1.png';
+import EntregaCasa from '../assets/img/2.png';
+import Atividades from '../assets/img/3.png';
+import Encomendar from '../assets/img/5.png';
+import Social from '../assets/img/4.png';
+import Pequeno from '../assets/img/6.png';
+import Wifi from '../assets/img/7.png';
+import Contactos from '../assets/img/8.png';
+
 
 function HomePage() {
   return (
     <Container>
       <Row>
-        <Col md="4">
-          <Link to="/navegacao">
-            <img src={navegacao} alt="React Logo" />
-            <figcaption>Navegação</figcaption>
-          </Link>
+      <Col md="12">
+      <Header />
+
+      </Col>
+        <Col md="6">
+         <Cartao>
+          <h1>Navegação</h1>
+          <img src={Navegacao} alt="icone-navegacao" />
+
+         </Cartao>
         </Col>
-        <Col md="4">
-          <img src={menus} alt="React Logo" />
-          <figcaption>Escolha e nós levamos a sua casa</figcaption>
+       <Col md="6">
+         <Cartao>
+          <h1>Escolha e será entregue em sua casa</h1>
+          <img src={EntregaCasa} alt="icone-navegacao" />
+
+         </Cartao>
         </Col>
-        <Col md="4">
-          <Link to="/encomendar">
-            <img src={comprar} alt="React Logo" />
-            <figcaption>Encomende e leve para casa</figcaption>
-          </Link>
+        <Col md="6">
+         <Cartao>
+          <h1>Atividades na Quinta</h1>
+          <img src={Atividades} alt="icone-navegacao" />
+
+         </Cartao>
         </Col>
-        <Col md="4">
-          <Link to="/wifi">
-            <img src={wifi} alt="React Logo" />
-            <figcaption>Password Wifi</figcaption>
-          </Link>
+        <Col md="6">
+         <Cartao>
+          <h1>Encomende e leve para casa</h1>
+          <img src={Encomendar} alt="icone-navegacao" />
+
+         </Cartao>
         </Col>
-        <Col md="4">
-          <img src={atividades} alt="React Logo" />
-          <figcaption>Atividades na quinta</figcaption>
+        <Col md="6">
+         <Cartao>
+          <h1>Terrincha nas redes sociais</h1>
+          <img src={Social} alt="icone-navegacao" />
+
+         </Cartao>
         </Col>
-        <Col md="4">
-          <Link to="/contactos">
-            <img src={info} alt="React Logo" />
-            <figcaption>Contatos úteis</figcaption>
-          </Link>
+        <Col md="6">
+         <Cartao>
+          <h1>Horas de Pequeno Almoço</h1>
+          <img src={Pequeno} alt="icone-navegacao" />
+
+         </Cartao>
+        </Col>
+        <Col md="6">
+         <Cartao>
+          <h1>Pasword Wifi</h1>
+          <img src={Wifi} alt="icone-navegacao" />
+
+         </Cartao>
+        </Col>
+        <Col md="6">
+         <Cartao>
+          <h1>Contactos úteis</h1>
+          <img src={Contactos} alt="icone-navegacao" />
+
+         </Cartao>
         </Col>
       </Row>
     </Container>

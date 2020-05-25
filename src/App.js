@@ -13,7 +13,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 function App() {
   return (
     <>
-      <Header />
       <Switch>
         <Route exact path="/" component={HomePage} />
         <Route exact path="/checkin" component={CheckIn} />
