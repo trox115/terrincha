@@ -8,12 +8,14 @@ background-color:white;
 height:150px;
 border-radius:30px;
 margin-bottom:5%;
+color:#282828;
   h1{
     font-size:20px;
     width:60%;
     margin-left:2%;
     font-family: 'Open Sans', sans-serif;
     font-weight:700;
+
   }
 
   img{
