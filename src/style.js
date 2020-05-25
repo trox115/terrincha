@@ -33,7 +33,7 @@ background-size: cover;
 background-position: center;
 border-radius:30px;
 margin-bottom:30px;
-`
+`;
 
 export const FooterEl = style.footer`
 height:120px;
@@ -47,4 +47,4 @@ border-radius:15px 15px 0 0;
 img{
   height:70px;
 }
-`
+`;
