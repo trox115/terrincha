@@ -36,17 +36,33 @@ color:#282828;
 
 .titulo{
   color:black;
+   font-family: 'Open Sans', sans-serif;
+    font-weight:700;
+    font-size:30px;
+    margin-top:5px;
+    margin-bottom:0px;
 }
 
 .designacao{
-  color:yellow;
+  color:#D4B773;
+  font-family: 'Open Sans', sans-serif;
+    font-weight:700;
+    font-size:25px;
+    margin-top:0px;
 }
 .preco{
-  color:yellow;
+  color:white;
+  height:50px;
+  line-height:50px;
+  background-color:#D4B773;
+  padding:0 10px 0 10px;
+  border-radius:10px;
+  vertical-align:middle;
+  font-size:20px;
 }
 
 img{
-  height:100%;
+  max-height:350px;
 }
 `;
 export const GiveMargin = style.div`
@@ -97,5 +113,35 @@ img{
   height:50px;
   float:right;
   margin-right:5%;
+}
+`;
+
+export const ImagePlaceholder = style.figure`
+height:100%;
+margin-right:30px;
+margin-top:auto;
+margin-bottom:auto;
+margin-left:10px;
+`;
+
+export const PrecoCompra = style.div`
+display:flex;
+`;
+
+export const Compra = style.button`
+font-size:25px;
+background-color:#E84865;
+color:white;
+border:none;
+height:50px;
+margin-left:10px;
+border-radius:10px;
+ padding:0 20px 0 20px;
+display:flex;
+align-itens:center;
+justify-content:center;
+img{
+  float:right;
+  max-height:30px;
 }
 `;
