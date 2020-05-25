@@ -24,6 +24,31 @@ color:#282828;
     display:flex-end;
   }
 `;
+
+export const Produtos = style.div`
+width:100%;
+display:flex;
+align-items:center;
+background-color:white;
+border-radius:30px;
+margin-bottom:5%;
+color:#282828;
+
+.titulo{
+  color:black;
+}
+
+.designacao{
+  color:yellow;
+}
+.preco{
+  color:yellow;
+}
+
+img{
+  height:100%;
+}
+`;
 export const GiveMargin = style.div`
 height:100%;
 margin-bottom:120px;

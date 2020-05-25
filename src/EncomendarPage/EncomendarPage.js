@@ -2,67 +2,29 @@ import React from 'react';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import Container from 'react-bootstrap/Container';
+import { InfoHeader, Produtos, GiveMargin } from '../style';
+import Entrega from '../assets/img/5.png';
+import Vinho from '../assets/img/vinhos/1.png';
 
 function EncomendarPage() {
   return (
     <Container>
       <Row>
-        <Col lg="4" md="6" mb="4">
-          <div className="card h-100">
-            <a href="#">
-              <img className="card-img-top" src="/vinho.jpg" alt="" />
-            </a>
-            <div className="card-body">
-              <h4 className="card-title">
-                <a href="#">Vinho</a>
-              </h4>
-              <h5>15€</h5>
-              <p className="card-text">
-                Vinho da quinta da terrincha 2 garrafas!
-              </p>
+        <InfoHeader>
+          <h1>Encomende e leve para casa</h1>
+          <img src={Entrega} alt="icone de entrega" />
+        </InfoHeader>
+        <Col md="6">
+          <Produtos>
+            <img src={Vinho} alt="icone-navegacao" />
+            <div>
+              <h1 className="titulo">Quinta da Terrincha</h1>
+              <h2 className="designacao">Doc Douro Tinto</h2>
+              <p>2013</p>
+              <p className="preco">7€</p>
+              <button>Comprar</button>
             </div>
-            <div className="card-footer">
-              <button className="btn btn-primary">Adicionar ao carrinho</button>
-            </div>
-          </div>
-        </Col>
-        <Col lg="4" md="6" mb="4">
-          <div className="card h-100">
-            <a href="#">
-              <img className="card-img-top" src="/azeite.jpg" alt="" />
-            </a>
-            <div className="card-body">
-              <h4 className="card-title">
-                <a href="#">Azeite</a>
-              </h4>
-              <h5>30.00€</h5>
-              <p className="card-text">
-                Azeite da quinta da terrincha. 5 litors. Selo biológico!
-              </p>
-            </div>
-            <div className="card-footer">
-              <button className="btn btn-primary">Adicionar ao carrinho</button>
-            </div>
-          </div>
-        </Col>
-        <Col lg="4" md="6" mb="4">
-          <div className="card h-100">
-            <a href="#">
-              <img className="card-img-top" src="/mel.jpg" alt="" />
-            </a>
-            <div className="card-body">
-              <h4 className="card-title">
-                <a href="#">Mel</a>
-              </h4>
-              <h5>15€</h5>
-              <p className="card-text">
-                Mel de folha dee laranjeiro da quinta da terrincha!
-              </p>
-            </div>
-            <div className="card-footer">
-              <button className="btn btn-primary">Adicionar ao carrinho</button>
-            </div>
-          </div>
+          </Produtos>
         </Col>
       </Row>
     </Container>

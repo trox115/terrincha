@@ -46,7 +46,7 @@ function HomePage() {
             </Link>
           </Col>
           <Col md="6">
-            <Link to="/navegacao">
+            <Link to="/encomendar">
               <Cartao>
                 <h1>Encomende e leve para casa</h1>
                 <img src={Encomendar} alt="icone-navegacao" />
