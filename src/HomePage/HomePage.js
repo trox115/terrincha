@@ -21,52 +21,68 @@ function HomePage() {
           <Header />
         </Col>
         <Col md="6">
-          <Cartao>
-            <h1>Navegação</h1>
-            <img src={Navegacao} alt="icone-navegacao" />
-          </Cartao>
+          <Link to="/navegacao">
+            <Cartao>
+              <h1>Navegação</h1>
+              <img src={Navegacao} alt="icone-navegacao" />
+            </Cartao>
+          </Link>
         </Col>
         <Col md="6">
-          <Cartao>
-            <h1>Escolha e será entregue em sua casa</h1>
-            <img src={EntregaCasa} alt="icone-navegacao" />
-          </Cartao>
+          <Link to="/navegacao">
+            <Cartao>
+              <h1>Escolha e será entregue em sua casa</h1>
+              <img src={EntregaCasa} alt="icone-navegacao" />
+            </Cartao>
+          </Link>
         </Col>
         <Col md="6">
-          <Cartao>
-            <h1>Atividades na Quinta</h1>
-            <img src={Atividades} alt="icone-navegacao" />
-          </Cartao>
+          <Link to="/navegacao">
+            <Cartao>
+              <h1>Atividades na Quinta</h1>
+              <img src={Atividades} alt="icone-navegacao" />
+            </Cartao>
+          </Link>
         </Col>
         <Col md="6">
-          <Cartao>
-            <h1>Encomende e leve para casa</h1>
-            <img src={Encomendar} alt="icone-navegacao" />
-          </Cartao>
+          <Link to="/navegacao">
+            <Cartao>
+              <h1>Encomende e leve para casa</h1>
+              <img src={Encomendar} alt="icone-navegacao" />
+            </Cartao>
+          </Link>
         </Col>
         <Col md="6">
-          <Cartao>
-            <h1>Terrincha nas redes sociais</h1>
-            <img src={Social} alt="icone-navegacao" />
-          </Cartao>
+          <Link to="/navegacao">
+            <Cartao>
+              <h1>Terrincha nas redes sociais</h1>
+              <img src={Social} alt="icone-navegacao" />
+            </Cartao>
+          </Link>
         </Col>
         <Col md="6">
-          <Cartao>
-            <h1>Horas de Pequeno Almoço</h1>
-            <img src={Pequeno} alt="icone-navegacao" />
-          </Cartao>
+          <Link to="/navegacao">
+            <Cartao>
+              <h1>Horas de Pequeno Almoço</h1>
+              <img src={Pequeno} alt="icone-navegacao" />
+            </Cartao>
+          </Link>
         </Col>
         <Col md="6">
-          <Cartao>
-            <h1>Pasword Wifi</h1>
-            <img src={Wifi} alt="icone-navegacao" />
-          </Cartao>
+          <Link to="/wifi">
+            <Cartao>
+              <h1>Pasword Wifi</h1>
+              <img src={Wifi} alt="icone-navegacao" />
+            </Cartao>
+          </Link>
         </Col>
         <Col md="6">
-          <Cartao>
-            <h1>Contactos úteis</h1>
-            <img src={Contactos} alt="icone-navegacao" />
-          </Cartao>
+          <Link to="/contactos">
+            <Cartao>
+              <h1>Contactos úteis</h1>
+              <img src={Contactos} alt="icone-navegacao" />
+            </Cartao>
+          </Link>
         </Col>
       </Row>
     </Container>
