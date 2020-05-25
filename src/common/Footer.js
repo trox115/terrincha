@@ -1,8 +1,8 @@
 import React from 'react';
-import { FooterEl } from '../style';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import { FooterEl } from '../style';
 import Checkout from '../assets/icones/1.png';
 import Chat from '../assets/icones/2.png';
 import Notifica from '../assets/icones/3.png';
