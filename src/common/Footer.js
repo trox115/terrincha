@@ -11,20 +11,30 @@ import Carrinho from '../assets/icones/5.png';
 
 
 function Footer(){
+  function startChat(){
+    const a = document.getElementById('zsiq_float');
+    if(a.style.display ==='none'){
+    a.style.display = 'block';
+    }
+    else{
+     a.style.display = 'none'; 
+    }
+  }
 
   return(
    <FooterEl className="fixed-bottom">
     <Container>
       <Row>
-        <Col md='3'>
+      <Col md='1' />
+        <Col md='2'>
           <img src={Checkout} alt="Checkout"/>
           <p>Checkout</p>
         </Col>
-        <Col md='2'>
+        <Col md='2' onClick={startChat}>
           <img src={Chat} alt="Checkout"/>
           <p>Chat</p>
         </Col>
-        <Col md='3'>
+        <Col md='2'>
           <img src={Notifica} alt="Checkout"/>
           <p>Notificações</p>
         </Col>
@@ -36,6 +46,7 @@ function Footer(){
           <img src={Carrinho} alt="Checkout"/>
           <p>Carrinho</p>
         </Col>
+        <Col md='1' />
       </Row>
     </Container>
    </FooterEl>
