@@ -1,6 +1,7 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import HomePage from './components/HomePage/HomePage';
+import { connect } from 'react-redux';
 import ContactosUteis from './components/ContactosUteis/ContactosUteis';
 import EncomendarPage from './components/EncomendarPage/EncomendarPage';
 import NavegacaoPage from './components/NavegacaoPage/NavegacaoPage';
@@ -26,4 +27,10 @@ function App() {
   );
 }
 
-export default App;
+function mapStateToProps(state) {
+  return {
+    produtos: state.produtos,
+  };
+}
+
+export default connect(mapStateToProps)(App);
