@@ -4,9 +4,9 @@ import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import Button from 'react-bootstrap/Button';
 import styled from 'styled-components';
-import { InfoHeader, Cartao, GiveMargin } from '../style';
-import wifi from '../assets/img/7.png';
-import qrcode from '../qrcode.jpg';
+import { InfoHeader, Cartao, GiveMargin } from '../../style';
+import wifi from '../../assets/img/7.png';
+import qrcode from '../../qrcode.jpg';
 
 const Hidding = styled.div`
   text-align: center;

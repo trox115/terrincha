@@ -1,11 +1,11 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
-import HomePage from './HomePage/HomePage';
-import ContactosUteis from './ContactosUteis/ContactosUteis';
-import EncomendarPage from './EncomendarPage/EncomendarPage';
-import NavegacaoPage from './NavegacaoPage/NavegacaoPage';
-import Wifi from './Wifi/wifi';
-import CheckIn from './CheckIn/CheckIn';
+import HomePage from './components/HomePage/HomePage';
+import ContactosUteis from './components/ContactosUteis/ContactosUteis';
+import EncomendarPage from './components/EncomendarPage/EncomendarPage';
+import NavegacaoPage from './components/NavegacaoPage/NavegacaoPage';
+import Wifi from './components/Wifi/wifi';
+import CheckIn from './components/CheckIn/CheckIn';
 import Footer from './common/Footer';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';

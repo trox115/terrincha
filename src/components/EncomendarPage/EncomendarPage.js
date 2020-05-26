@@ -9,10 +9,10 @@ import {
   ImagePlaceholder,
   PrecoCompra,
   Compra,
-} from '../style';
-import Entrega from '../assets/img/5.png';
-import Carrinho from '../assets/icones/5.png';
-import Vinho from '../assets/img/vinhos/1-tinto.png';
+} from '../../style';
+import Entrega from '../../assets/img/5.png';
+import Carrinho from '../../assets/icones/5.png';
+import Vinho from '../../assets/img/vinhos/1-tinto.png';
 
 function EncomendarPage() {
   return (

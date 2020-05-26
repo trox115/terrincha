@@ -3,15 +3,15 @@ import Container from 'react-bootstrap/Container';
 import { Link } from 'react-router-dom';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import { Cartao, Header, GiveMargin } from '../style';
-import Navegacao from '../assets/img/1.png';
-import EntregaCasa from '../assets/img/2.png';
-import Atividades from '../assets/img/3.png';
-import Encomendar from '../assets/img/5.png';
-import Social from '../assets/img/4.png';
-import Pequeno from '../assets/img/6.png';
-import Wifi from '../assets/img/7.png';
-import Contactos from '../assets/img/8.png';
+import { Cartao, Header, GiveMargin } from '../../style';
+import Navegacao from '../../assets/img/1.png';
+import EntregaCasa from '../../assets/img/2.png';
+import Atividades from '../../assets/img/3.png';
+import Encomendar from '../../assets/img/5.png';
+import Social from '../../assets/img/4.png';
+import Pequeno from '../../assets/img/6.png';
+import Wifi from '../../assets/img/7.png';
+import Contactos from '../../assets/img/8.png';
 
 function HomePage() {
   return (
