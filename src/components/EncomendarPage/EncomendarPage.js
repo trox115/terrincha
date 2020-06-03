@@ -15,7 +15,6 @@ import {
 } from '../../style';
 import Entrega from '../../assets/img/5.png';
 import Carrinho from '../../assets/icones/5.png';
-import Vinho from '../../assets/img/vinhos/1-tinto.png';
 
 function EncomendarPage({ ...props }) {
   const { loadProdutos } = props;
@@ -31,7 +30,7 @@ function EncomendarPage({ ...props }) {
     <Col md="6" key={produto.id}>
       <Produtos>
         <ImagePlaceholder>
-          <img src={Vinho} alt="icone-navegacao" />
+          <img src={`/vinhos/${produto.imagem}`} alt="icone-navegacao" />
         </ImagePlaceholder>
         <div>
           <h1 className="titulo">{produto.nome}</h1>
