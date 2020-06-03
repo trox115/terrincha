@@ -18,13 +18,36 @@ import Vinho from '../../assets/img/vinhos/1-tinto.png';
 
 function EncomendarPage({ ...props }) {
   const { loadProdutos } = props;
-  console.log(props);
   const { produtos } = props;
   useEffect(() => {
     if (produtos.length <= 0) {
       loadProdutos();
+      console.log(produtos);
     }
-  }, [0]);
+  }, [produtos, loadProdutos]);
+  let allProdutos = [];
+
+  allProdutos = produtos.map(produto => (
+    <Col md="6">
+      <Produtos>
+        <ImagePlaceholder>
+          <img src={Vinho} alt="icone-navegacao" />
+        </ImagePlaceholder>
+        <div>
+          <h1 className="titulo">{produto.nome}</h1>
+          <h2 className="designacao">{produto.descricao}</h2>
+          <p>{produto.ano}</p>
+          <PrecoCompra>
+            <p className="preco">{produto.preco}€</p>
+            <Compra>
+              Comprar
+              <img src={Carrinho} alt="" />
+            </Compra>
+          </PrecoCompra>
+        </div>
+      </Produtos>
+    </Col>
+  ));
   return (
     <GiveMargin>
       <Container>
@@ -33,165 +56,8 @@ function EncomendarPage({ ...props }) {
             <h1>Encomende e leve para casa</h1>
             <img src={Entrega} alt="icone de entrega" />
           </InfoHeader>
-          <Col md="6">
-            <Produtos>
-              <ImagePlaceholder>
-                <img src={Vinho} alt="icone-navegacao" />
-              </ImagePlaceholder>
-              <div>
-                <h1 className="titulo">Quinta da Terrincha</h1>
-                <h2 className="designacao">Doc Douro Tinto</h2>
-                <p>2013</p>
-                <PrecoCompra>
-                  <p className="preco">7€</p>
-                  <Compra>
-                    Comprar
-                    <img src={Carrinho} alt="" />
-                  </Compra>
-                </PrecoCompra>
-              </div>
-            </Produtos>
-          </Col>
 
-          <Col md="6">
-            <Produtos>
-              <ImagePlaceholder>
-                <img src={Vinho} alt="icone-navegacao" />
-              </ImagePlaceholder>
-              <div>
-                <h1 className="titulo">Quinta da Terrincha</h1>
-                <h2 className="designacao">Doc Douro Tinto</h2>
-                <p>2013</p>
-                <PrecoCompra>
-                  <p className="preco">7€</p>
-                  <Compra>
-                    Comprar
-                    <img src={Carrinho} alt="" />
-                  </Compra>
-                </PrecoCompra>
-              </div>
-            </Produtos>
-          </Col>
-
-          <Col md="6">
-            <Produtos>
-              <ImagePlaceholder>
-                <img src={Vinho} alt="icone-navegacao" />
-              </ImagePlaceholder>
-              <div>
-                <h1 className="titulo">Quinta da Terrincha</h1>
-                <h2 className="designacao">Doc Douro Tinto</h2>
-                <p>2013</p>
-                <PrecoCompra>
-                  <p className="preco">7€</p>
-                  <Compra>
-                    Comprar
-                    <img src={Carrinho} alt="" />
-                  </Compra>
-                </PrecoCompra>
-              </div>
-            </Produtos>
-          </Col>
-
-          <Col md="6">
-            <Produtos>
-              <ImagePlaceholder>
-                <img src={Vinho} alt="icone-navegacao" />
-              </ImagePlaceholder>
-              <div>
-                <h1 className="titulo">Quinta da Terrincha</h1>
-                <h2 className="designacao">Doc Douro Tinto</h2>
-                <p>2013</p>
-                <PrecoCompra>
-                  <p className="preco">7€</p>
-                  <Compra>
-                    Comprar
-                    <img src={Carrinho} alt="" />
-                  </Compra>
-                </PrecoCompra>
-              </div>
-            </Produtos>
-          </Col>
-
-          <Col md="6">
-            <Produtos>
-              <ImagePlaceholder>
-                <img src={Vinho} alt="icone-navegacao" />
-              </ImagePlaceholder>
-              <div>
-                <h1 className="titulo">Quinta da Terrincha</h1>
-                <h2 className="designacao">Doc Douro Tinto</h2>
-                <p>2013</p>
-                <PrecoCompra>
-                  <p className="preco">7€</p>
-                  <Compra>
-                    Comprar
-                    <img src={Carrinho} alt="" />
-                  </Compra>
-                </PrecoCompra>
-              </div>
-            </Produtos>
-          </Col>
-
-          <Col md="6">
-            <Produtos>
-              <ImagePlaceholder>
-                <img src={Vinho} alt="icone-navegacao" />
-              </ImagePlaceholder>
-              <div>
-                <h1 className="titulo">Quinta da Terrincha</h1>
-                <h2 className="designacao">Doc Douro Tinto</h2>
-                <p>2013</p>
-                <PrecoCompra>
-                  <p className="preco">7€</p>
-                  <Compra>
-                    Comprar
-                    <img src={Carrinho} alt="" />
-                  </Compra>
-                </PrecoCompra>
-              </div>
-            </Produtos>
-          </Col>
-
-          <Col md="6">
-            <Produtos>
-              <ImagePlaceholder>
-                <img src={Vinho} alt="icone-navegacao" />
-              </ImagePlaceholder>
-              <div>
-                <h1 className="titulo">Quinta da Terrincha</h1>
-                <h2 className="designacao">Doc Douro Tinto</h2>
-                <p>2013</p>
-                <PrecoCompra>
-                  <p className="preco">7€</p>
-                  <Compra>
-                    Comprar
-                    <img src={Carrinho} alt="" />
-                  </Compra>
-                </PrecoCompra>
-              </div>
-            </Produtos>
-          </Col>
-
-          <Col md="6">
-            <Produtos>
-              <ImagePlaceholder>
-                <img src={Vinho} alt="icone-navegacao" />
-              </ImagePlaceholder>
-              <div>
-                <h1 className="titulo">Quinta da Terrincha</h1>
-                <h2 className="designacao">Doc Douro Tinto</h2>
-                <p>2013</p>
-                <PrecoCompra>
-                  <p className="preco">7€</p>
-                  <Compra>
-                    Comprar
-                    <img src={Carrinho} alt="" />
-                  </Compra>
-                </PrecoCompra>
-              </div>
-            </Produtos>
-          </Col>
+          {allProdutos}
         </Row>
       </Container>
     </GiveMargin>
