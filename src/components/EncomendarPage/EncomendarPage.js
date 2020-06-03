@@ -2,6 +2,7 @@ import React from 'react';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import Container from 'react-bootstrap/Container';
+import { getProdutos } from '../../Api/ProductOp';
 import {
   InfoHeader,
   Produtos,
@@ -15,6 +16,7 @@ import Carrinho from '../../assets/icones/5.png';
 import Vinho from '../../assets/img/vinhos/1-tinto.png';
 
 function EncomendarPage() {
+  console.log(getProdutos);
   return (
     <GiveMargin>
       <Container>
