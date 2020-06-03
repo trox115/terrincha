@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import Container from 'react-bootstrap/Container';
@@ -63,6 +64,14 @@ function EncomendarPage({ ...props }) {
     </GiveMargin>
   );
 }
+
+HomePage.propTypes = {
+  loadProdutos: PropTypes.func.isRequired,
+  produtos: PropTypes.instanceOf(Array).isRequired,
+  produtos.length: PropTypes.number.isRequired,
+};
+
+
 
 function mapDispatchToProps(dispatch) {
   return {

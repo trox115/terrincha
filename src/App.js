@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
-import HomePage from './components/HomePage/HomePage';
 import { connect } from 'react-redux';
+import HomePage from './components/HomePage/HomePage';
 import ContactosUteis from './components/ContactosUteis/ContactosUteis';
 import EncomendarPage from './components/EncomendarPage/EncomendarPage';
 import NavegacaoPage from './components/NavegacaoPage/NavegacaoPage';
