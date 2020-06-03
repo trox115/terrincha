@@ -41,7 +41,7 @@ function EncomendarPage({ ...props }) {
             <p className="preco">{`${produto.preco}€`}</p>
             <Compra>
               Comprar
-              <img src={Carrinho} alt="" />
+              <img src={Carrinho} alt="carrinho" />
             </Compra>
           </PrecoCompra>
         </div>
