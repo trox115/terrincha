@@ -142,6 +142,6 @@ align-itens:center;
 justify-content:center;
 img{
   float:right;
-  max-height:30px;
+  max-height:38px;
 }
 `;
