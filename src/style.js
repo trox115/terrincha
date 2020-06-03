@@ -19,8 +19,8 @@ color:#282828;
   }
 
   img{
-    width:30%;
-    height:40%;
+    width:55px;
+    height:55px;
     display:flex-end;
   }
 `;
