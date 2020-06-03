@@ -8,3 +8,7 @@ export function getProdutos() {
     .then(response => response)
     .catch(erro => erro);
 }
+
+export function test() {
+  return 0;
+}

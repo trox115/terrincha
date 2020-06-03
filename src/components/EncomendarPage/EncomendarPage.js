@@ -23,14 +23,13 @@ function EncomendarPage({ ...props }) {
   useEffect(() => {
     if (produtos.length <= 0) {
       loadProdutos();
-      console.log(produtos);
     }
   }, [produtos, loadProdutos]);
   let allProdutos = [];
 
   allProdutos = produtos.map(produto => (
-    <Col md="6">
-      <Produtos key={produto.id}>
+    <Col md="6" key={produto.id}>
+      <Produtos>
         <ImagePlaceholder>
           <img src={Vinho} alt="icone-navegacao" />
         </ImagePlaceholder>
