@@ -62,7 +62,7 @@ color:#282828;
 }
 
 img{
-  max-height:350px;
+  height:390px;
 }
 `;
 export const GiveMargin = style.div`
