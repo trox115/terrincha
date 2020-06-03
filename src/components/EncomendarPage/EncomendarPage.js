@@ -65,13 +65,10 @@ function EncomendarPage({ ...props }) {
   );
 }
 
-HomePage.propTypes = {
+EncomendarPage.propTypes = {
   loadProdutos: PropTypes.func.isRequired,
   produtos: PropTypes.instanceOf(Array).isRequired,
-  produtos.length: PropTypes.number.isRequired,
 };
-
-
 
 function mapDispatchToProps(dispatch) {
   return {
