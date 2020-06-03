@@ -2,7 +2,6 @@ import React from 'react';
 import Container from 'react-bootstrap/Container';
 
 function ContactosUteis() {
-  console.log('estas aqui');
   return (
     <Container>
       <h2>GNR de Moncorvo</h2>
