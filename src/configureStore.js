@@ -14,6 +14,7 @@ function loadFromLocalStorage() {
 const persistedState = loadFromLocalStorage();
 
 function configureStore() {
+  /* eslint-disable operator-linebreak */
   const composeEnhancers =
     window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
   return createStore(

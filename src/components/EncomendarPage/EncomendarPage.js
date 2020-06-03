@@ -30,7 +30,7 @@ function EncomendarPage({ ...props }) {
 
   allProdutos = produtos.map(produto => (
     <Col md="6">
-      <Produtos>
+      <Produtos key={produto.id}>
         <ImagePlaceholder>
           <img src={Vinho} alt="icone-navegacao" />
         </ImagePlaceholder>
@@ -39,7 +39,7 @@ function EncomendarPage({ ...props }) {
           <h2 className="designacao">{produto.descricao}</h2>
           <p>{produto.ano}</p>
           <PrecoCompra>
-            <p className="preco">{produto.preco}€</p>
+            <p className="preco">{`${produto.preco}€`}</p>
             <Compra>
               Comprar
               <img src={Carrinho} alt="" />
