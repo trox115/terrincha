@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { connect } from 'react-redux';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import Container from 'react-bootstrap/Container';
-import { getProdutos } from '../../Api/ProductOp';
+import * as productActions from '../../actions/Actions';
 import {
   InfoHeader,
   Produtos,
@@ -15,8 +16,15 @@ import Entrega from '../../assets/img/5.png';
 import Carrinho from '../../assets/icones/5.png';
 import Vinho from '../../assets/img/vinhos/1-tinto.png';
 
-function EncomendarPage() {
-  console.log(getProdutos);
+function EncomendarPage({ ...props }) {
+  const { loadProdutos } = props;
+  console.log(props);
+  const { produtos } = props;
+  useEffect(() => {
+    if (produtos.length <= 0) {
+      loadProdutos();
+    }
+  }, [0]);
   return (
     <GiveMargin>
       <Container>
@@ -190,4 +198,15 @@ function EncomendarPage() {
   );
 }
 
-export default EncomendarPage;
+function mapDispatchToProps(dispatch) {
+  return {
+    loadProdutos: () => dispatch(productActions.Produtos()),
+  };
+}
+
+function mapStateToProps(state) {
+  return {
+    produtos: state.produtos,
+  };
+}
+export default connect(mapStateToProps, mapDispatchToProps)(EncomendarPage);

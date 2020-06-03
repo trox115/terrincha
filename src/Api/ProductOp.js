@@ -1,10 +1,10 @@
 import axios from 'axios';
 
-const baseUrl = 'http://localhost:3001/produtos';
+const baseUrl = 'http://localhost:3001/produtos/index';
 
 export function getProdutos() {
   return axios
     .get(baseUrl, { withCredentials: true })
-    .then(response => response.data)
+    .then(response => response)
     .catch(erro => erro);
 }

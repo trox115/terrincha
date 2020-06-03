@@ -1,7 +1,8 @@
 function ProdutosReducer(state = [], action) {
   switch (action.type) {
     case 'CREATE_PRODUTOS':
-      return [...state, ...action.barber];
+      console.log(action);
+      return [...state, ...action.produto];
 
     default:
       return state;
