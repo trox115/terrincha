@@ -14,8 +14,6 @@ import Entrega from '../../assets/img/5.png';
 import Carrinho from '../../assets/icones/5.png';
 
 function Modal({ ...props }) {
-  console.log(props.produto);
-
   return (
     <div id="myModal" className="modal">
       <div className="modal-content">

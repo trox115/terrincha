@@ -25,7 +25,6 @@ function EncomendarPage({ ...props }) {
     produto: { nome: '' },
   });
 
-  console.log(modal);
   useEffect(() => {
     if (produtos.length <= 0) {
       loadProdutos();
@@ -63,9 +62,9 @@ function EncomendarPage({ ...props }) {
       opened: true,
       produto: produtos[index],
     });
-    let pop = document.getElementById('myModal');
+    const pop = document.getElementById('myModal');
     pop.style.display = 'block';
-    var span = document.getElementsByClassName('close')[0];
+    const span = document.getElementsByClassName('close')[0];
     span.onclick = function() {
       pop.style.display = 'none';
     };
