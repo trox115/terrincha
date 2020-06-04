@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
 import Container from 'react-bootstrap/Container';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
+/* eslint-disable operator-linebreak */
 import { Produtos, ImagePlaceholder, PrecoCompra, Compra } from '../../style';
 import Carrinho from '../../assets/icones/5.png';
 
@@ -16,7 +18,6 @@ function Modal({ ...props }) {
   }, [qtdd]);
 
   function handleChange(event) {
-    const novaquantidade = parseInt(event.target.value, 10);
     setqtdd({ [event.target.name]: event.target.value });
   }
 
@@ -65,5 +66,9 @@ function Modal({ ...props }) {
     </div>
   );
 }
+
+Modal.propTypes = {
+  produto: PropTypes.instanceOf(Array).isRequired,
+};
 
 export default Modal;

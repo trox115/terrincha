@@ -43,7 +43,7 @@ function EncomendarPage({ ...props }) {
     const pop = document.getElementById('myModal');
     pop.style.display = 'block';
     const span = document.getElementsByClassName('close')[0];
-    span.onclick = function() {
+    span.onclick = function unamed() {
       pop.style.display = 'none';
     };
   }
