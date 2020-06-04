@@ -32,6 +32,22 @@ function EncomendarPage({ ...props }) {
   }, [produtos, loadProdutos]);
   let allProdutos = [];
 
+  function handleClick(event) {
+    const idProduto = parseInt(event.target.id, 10);
+    const index = produtos.findIndex(x => x.id === idProduto);
+
+    setModal({
+      opened: true,
+      produto: produtos[index],
+    });
+    const pop = document.getElementById('myModal');
+    pop.style.display = 'block';
+    const span = document.getElementsByClassName('close')[0];
+    span.onclick = function() {
+      pop.style.display = 'none';
+    };
+  }
+
   allProdutos = produtos.map(produto => (
     <Col md="6" key={produto.id}>
       <Produtos>
@@ -54,21 +70,6 @@ function EncomendarPage({ ...props }) {
     </Col>
   ));
 
-  function handleClick(event) {
-    const idProduto = parseInt(event.target.id);
-    const index = produtos.findIndex(x => x.id === idProduto);
-
-    setModal({
-      opened: true,
-      produto: produtos[index],
-    });
-    const pop = document.getElementById('myModal');
-    pop.style.display = 'block';
-    const span = document.getElementsByClassName('close')[0];
-    span.onclick = function() {
-      pop.style.display = 'none';
-    };
-  }
   return (
     <GiveMargin>
       <Container>
