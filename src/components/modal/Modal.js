@@ -10,7 +10,6 @@ import { Produtos, ImagePlaceholder, PrecoCompra, Compra } from '../../style';
 import Carrinho from '../../assets/icones/5.png';
 
 function Modal({ ...props }) {
-  console.log(props);
   const { produto, insertCart } = props;
   const [qtdd, setqtdd] = useState({
     quantidade: 1,
