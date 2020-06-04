@@ -19,8 +19,8 @@ color:#282828;
   }
 
   img{
-    width:30%;
-    height:40%;
+    width:55px;
+    height:55px;
     display:flex-end;
   }
 `;
@@ -62,7 +62,7 @@ color:#282828;
 }
 
 img{
-  max-height:350px;
+  height:390px;
 }
 `;
 export const GiveMargin = style.div`
@@ -126,6 +126,12 @@ margin-left:10px;
 
 export const PrecoCompra = style.div`
 display:flex;
+
+input{
+      width: 80px;
+    height: 50px;
+    margin-left: 40px;
+}
 `;
 
 export const Compra = style.button`
@@ -142,6 +148,6 @@ align-itens:center;
 justify-content:center;
 img{
   float:right;
-  max-height:30px;
+  max-height:38px;
 }
 `;
