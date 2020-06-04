@@ -2,15 +2,7 @@ import React from 'react';
 import Container from 'react-bootstrap/Container';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
-import {
-  InfoHeader,
-  Produtos,
-  GiveMargin,
-  ImagePlaceholder,
-  PrecoCompra,
-  Compra,
-} from '../../style';
-import Entrega from '../../assets/img/5.png';
+import { Produtos, ImagePlaceholder, PrecoCompra, Compra } from '../../style';
 import Carrinho from '../../assets/icones/5.png';
 
 function Modal({ ...props }) {
