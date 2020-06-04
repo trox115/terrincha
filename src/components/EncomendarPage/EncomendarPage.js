@@ -1,10 +1,11 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import Container from 'react-bootstrap/Container';
 import * as productActions from '../../actions/Actions';
+import Modal from '../modal/Modal';
 import {
   InfoHeader,
   Produtos,
@@ -19,6 +20,12 @@ import Carrinho from '../../assets/icones/5.png';
 function EncomendarPage({ ...props }) {
   const { loadProdutos } = props;
   const { produtos } = props;
+  const [modal, setModal] = useState({
+    opened: false,
+    produto: { nome: '' },
+  });
+
+  console.log(modal);
   useEffect(() => {
     if (produtos.length <= 0) {
       loadProdutos();
@@ -38,7 +45,7 @@ function EncomendarPage({ ...props }) {
           <p>{produto.ano}</p>
           <PrecoCompra>
             <p className="preco">{`${produto.preco}€`}</p>
-            <Compra>
+            <Compra onClick={handleClick} id={produto.id}>
               Comprar
               <img src={Carrinho} alt="carrinho" />
             </Compra>
@@ -47,10 +54,27 @@ function EncomendarPage({ ...props }) {
       </Produtos>
     </Col>
   ));
+
+  function handleClick(event) {
+    const idProduto = parseInt(event.target.id);
+    const index = produtos.findIndex(x => x.id === idProduto);
+
+    setModal({
+      opened: true,
+      produto: produtos[index],
+    });
+    let pop = document.getElementById('myModal');
+    pop.style.display = 'block';
+    var span = document.getElementsByClassName('close')[0];
+    span.onclick = function() {
+      pop.style.display = 'none';
+    };
+  }
   return (
     <GiveMargin>
       <Container>
         <Row>
+          <Modal produto={modal.produto} />
           <InfoHeader>
             <h1>Encomende e leve para casa</h1>
             <img src={Entrega} alt="icone de entrega" />
