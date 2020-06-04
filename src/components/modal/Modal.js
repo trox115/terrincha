@@ -18,7 +18,6 @@ function Modal({ ...props }) {
   function handleChange(event) {
     const novaquantidade = parseInt(event.target.value, 10);
     setqtdd({ [event.target.name]: event.target.value });
-    console.log(qtdd);
   }
 
   return (
