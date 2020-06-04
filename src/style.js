@@ -126,6 +126,12 @@ margin-left:10px;
 
 export const PrecoCompra = style.div`
 display:flex;
+
+input{
+      width: 80px;
+    height: 50px;
+    margin-left: 40px;
+}
 `;
 
 export const Compra = style.button`

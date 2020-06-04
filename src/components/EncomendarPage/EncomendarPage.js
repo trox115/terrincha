@@ -22,7 +22,7 @@ function EncomendarPage({ ...props }) {
   const { produtos } = props;
   const [modal, setModal] = useState({
     opened: false,
-    produto: { nome: '' },
+    produto: { nome: '', preco: 0 },
   });
 
   useEffect(() => {
