@@ -15,3 +15,8 @@ export function Produtos() {
       });
   };
 }
+
+export function carrinhoSuccess(compra) {
+  console.log(compra);
+  return { type: 'INSERT_CART', compra };
+}

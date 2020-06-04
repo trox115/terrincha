@@ -1,7 +1,8 @@
 function CartReducer(state = [], action) {
   switch (action.type) {
     case 'INSERT_CART':
-      return [...state, ...action.carrinho];
+      console.log(action.compra);
+      return [...state, ...action.compra];
 
     default:
       return state;
