@@ -1,13 +1,26 @@
-import React, { useState, useEffect } from 'react';
-import PropTypes from 'prop-types';
+import React from 'react';
+//import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import * as productActions from '../../actions/Actions';
 import Container from 'react-bootstrap/Container';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 /* eslint-disable object-curly-newline */
-import { Produtos, ImagePlaceholder, PrecoCompra, Compra } from '../../style';
-import Carrinho from '../../assets/icones/5.png';
+import styled from 'styled-components';
+
+const Tbl = styled.table`
+  width: 100%;
+  text-align: center;
+  border: 1px solid gray;
+  border-radius: 30px;
+  thead {
+    background: pink;
+    color: white;
+  }
+  img {
+    max-height: 60px;
+  }
+`;
 
 function ModalCart({ ...props }) {
   let allProducts = [];
@@ -34,17 +47,18 @@ function ModalCart({ ...props }) {
             <Col md="12">
               <h2>Carrinho</h2>
             </Col>
-            <table>
-              <tr>
-                <th>Produto</th>
-                <th>Quantidade</th>
-                <th>Preço</th>
-                <th>Imagem</th>
-                <th>Total</th>
-              </tr>
-
-              {allProducts}
-            </table>
+            <Tbl>
+              <thead>
+                <tr>
+                  <th>Produto</th>
+                  <th>Quantidade</th>
+                  <th>Preço</th>
+                  <th>Imagem</th>
+                  <th>Total</th>
+                </tr>
+              </thead>
+              <tbody>{allProducts}</tbody>
+            </Tbl>
           </Row>
         </Container>
       </div>

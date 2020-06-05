@@ -19,7 +19,7 @@ function CheckIn({ ...props }) {
     event.preventDefault();
     const { nome, email, casa } = info;
     if (casa === '1') {
-      toast.warn('A casa 1 ainda não foi limpa!');
+      toast.warn(nome + ' ' + email + ' A casa 1 ainda não foi limpa!');
     } else if (casa === '2') {
       toast.warn('A casa 2 ainda não foi limpa!');
     } else {
