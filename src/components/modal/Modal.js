@@ -14,7 +14,7 @@ function Modal({ ...props }) {
   const [qtdd, setqtdd] = useState({
     quantidade: 1,
   });
-  let total = 0;
+  let total = qtdd.quantidade * produto.preco;
   useEffect(() => {
     total = qtdd.quantidade * produto.preco;
   }, [qtdd]);
