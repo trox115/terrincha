@@ -7,6 +7,7 @@ import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 /* eslint-disable object-curly-newline */
 import styled from 'styled-components';
+import { Compra } from '../../style';
 
 const Tbl = styled.table`
   width: 100%;
@@ -22,19 +23,28 @@ const Tbl = styled.table`
   }
 `;
 
+const UltimoPasso = styled.div`
+  display: block;
+`;
+
 function ModalCart({ ...props }) {
   let allProducts = [];
   const { carrinho } = props;
+  let total = 0;
+  total = carrinho.reduce(
+    (accum, item) => accum + item.quantidade * item.preco,
+    0,
+  );
 
   allProducts = carrinho.map(produto => (
     <tr>
       <td>{produto.nome}</td>
       <td>{produto.quantidade}</td>
-      <td>{produto.preco}</td>
+      <td>{produto.preco}€</td>
       <td>
         <img src={`/vinhos/${produto.imagem}`} alt="" />
       </td>
-      <td>{parseInt(produto.quantidade, 10) * parseInt(produto.preco, 10)}</td>
+      <td>{parseInt(produto.quantidade, 10) * parseInt(produto.preco, 10)}€</td>
     </tr>
   ));
 
@@ -59,6 +69,10 @@ function ModalCart({ ...props }) {
               </thead>
               <tbody>{allProducts}</tbody>
             </Tbl>
+            <UltimoPasso>
+              <h4>Total: {total}€</h4>
+              <Compra>Finalizar</Compra>
+            </UltimoPasso>
           </Row>
         </Container>
       </div>
