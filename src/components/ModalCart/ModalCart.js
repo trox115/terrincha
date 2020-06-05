@@ -1,12 +1,12 @@
 import React from 'react';
-//import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import * as productActions from '../../actions/Actions';
 import Container from 'react-bootstrap/Container';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 /* eslint-disable object-curly-newline */
 import styled from 'styled-components';
+import * as productActions from '../../actions/Actions';
 import { Compra } from '../../style';
 
 const Tbl = styled.table`
@@ -37,7 +37,7 @@ function ModalCart({ ...props }) {
   );
 
   allProducts = carrinho.map(produto => (
-    <tr>
+    <tr key={produto.id}>
       <td>{produto.nome}</td>
       <td>{produto.quantidade}</td>
       <td>{produto.preco}€</td>
@@ -79,6 +79,10 @@ function ModalCart({ ...props }) {
     </div>
   );
 }
+
+ModalCart.propTypes = {
+  carrinho: PropTypes.instanceOf(Array).isRequired,
+};
 function mapStateToProps(state) {
   return {
     produtos: state.produtos,

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import { Cartao, Header, GiveMargin } from '../../style';
+import { Header, GiveMargin } from '../../style';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -20,7 +20,7 @@ function CheckIn({ ...props }) {
     event.preventDefault();
     const { nome, email, casa } = info;
     if (casa === '1') {
-      toast.warn(nome + ' ' + email + ' A casa 1 ainda não foi limpa!');
+      toast.warn(`${nome} ${email} A casa 1 ainda não foi limpa!`);
     } else if (casa === '2') {
       toast.warn('A casa 2 ainda não foi limpa!');
     } else {

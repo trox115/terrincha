@@ -19,7 +19,7 @@ function Footer() {
     }
   }
 
-  function cart(event) {
+  function cart() {
     const pop = document.getElementById('myModal2');
     pop.style.display = 'block';
     const span = document.getElementsByClassName('close')[0];

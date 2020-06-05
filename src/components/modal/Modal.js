@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import * as productActions from '../../actions/Actions';
 import Container from 'react-bootstrap/Container';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
+import * as productActions from '../../actions/Actions';
 /* eslint-disable object-curly-newline */
 import { Produtos, ImagePlaceholder, PrecoCompra, Compra } from '../../style';
 import Carrinho from '../../assets/icones/5.png';
@@ -25,7 +25,7 @@ function Modal({ ...props }) {
 
   function handleSubmit(event) {
     event.preventDefault();
-    let compra = produto;
+    const compra = produto;
     compra.quantidade = qtdd.quantidade;
     insertCart([compra]);
   }
@@ -78,6 +78,7 @@ function Modal({ ...props }) {
 
 Modal.propTypes = {
   produto: PropTypes.instanceOf(Array).isRequired,
+  insertCart: PropTypes.func.isRequired,
 };
 
 function mapDispatchToProps(dispatch) {
