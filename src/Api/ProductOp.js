@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const baseUrl = 'https://terrinchapi.herokuapp.com/produtos/index';
+const baseUrl = 'http://localhost:3001/produtos/index';
 
 export function getProdutos() {
   return axios
