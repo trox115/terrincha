@@ -44,7 +44,9 @@ function ModalCart({ ...props }) {
       <td>
         <img src={`/vinhos/${produto.imagem}`} alt="" />
       </td>
-      <td>{parseInt(produto.quantidade, 10) * parseInt(produto.preco, 10)}€</td>
+      <td>
+        {parseInt(produto.quantidade, 10) * parseInt(produto.preco, 10)} €
+      </td>
     </tr>
   ));
 
