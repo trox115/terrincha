@@ -1,5 +1,4 @@
 import React from 'react';
-import HttpsRedirect from 'react-https-redirect';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { Provider } from 'react-redux';
@@ -22,13 +21,11 @@ const store = configureStore();
 store.subscribe(() => saveToLocalStorage(store.getState()));
 
 ReactDOM.render(
-  <HttpsRedirect>
-    <Provider store={store}>
-      <Router>
-        <App />
-      </Router>
-    </Provider>
-  </HttpsRedirect>,
+  <Provider store={store}>
+    <Router>
+      <App />
+    </Router>
+  </Provider>,
   document.getElementById('root'),
 );
 serviceWorker.register();

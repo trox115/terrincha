@@ -19,6 +19,15 @@ function Footer() {
     }
   }
 
+  function cart() {
+    const pop = document.getElementById('myModal2');
+    pop.style.display = 'block';
+    const span = document.getElementsByClassName('close')[0];
+    span.onclick = function unamed() {
+      pop.style.display = 'none';
+    };
+  }
+
   return (
     <FooterEl className="fixed-bottom">
       <Container>
@@ -40,7 +49,7 @@ function Footer() {
             <img src={Perfil} alt="Checkout" />
             <p>Perfil</p>
           </Col>
-          <Col md="2">
+          <Col md="2" onClick={cart}>
             <img src={Carrinho} alt="Checkout" />
             <p>Carrinho</p>
           </Col>
