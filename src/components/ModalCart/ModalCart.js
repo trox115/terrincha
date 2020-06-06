@@ -40,11 +40,17 @@ function ModalCart({ ...props }) {
     <tr key={produto.id}>
       <td>{produto.nome}</td>
       <td>{produto.quantidade}</td>
-      <td>{produto.preco}€</td>
+      <td>
+        {produto.preco}
+        {''}€
+      </td>
       <td>
         <img src={`/vinhos/${produto.imagem}`} alt="" />
       </td>
-      <td>{parseInt(produto.quantidade, 10) * parseInt(produto.preco, 10)}€</td>
+      <td>
+        {parseInt(produto.quantidade, 10) * parseInt(produto.preco, 10)}
+        {''}€
+      </td>
     </tr>
   ));
 
@@ -70,7 +76,11 @@ function ModalCart({ ...props }) {
               <tbody>{allProducts}</tbody>
             </Tbl>
             <UltimoPasso>
-              <h4>Total: {total}€</h4>
+              <h4>
+                Total:{''}
+                {total}
+                {''}€
+              </h4>
               <Compra>Finalizar</Compra>
             </UltimoPasso>
           </Row>
