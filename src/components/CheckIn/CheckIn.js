@@ -4,6 +4,7 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import * as productActions from '../../actions/Actions';
+import Register from '../../Api/criarCliente';
 import { Header, GiveMargin } from '../../style';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -47,7 +48,11 @@ const Cartao = styled.div`
 `;
 
 function CheckIn({ ...props }) {
-  const [info, setInfo] = useState('name');
+  const [form, setState] = useState({
+    name: '',
+    email: '',
+    phone: '123456789',
+  });
   const { loadCasas, casas } = props;
   useEffect(() => {
     if (casas.length <= 0) {
@@ -55,22 +60,15 @@ function CheckIn({ ...props }) {
     }
   }, [casas, loadCasas]);
   function handleChange(event) {
-    setInfo({
-      ...info,
+    setState({
+      ...form,
       [event.target.name]: event.target.value,
     });
   }
 
   function handleSubmit(event) {
     event.preventDefault();
-    const { nome, email, casa } = info;
-    if (casa === '1') {
-      toast.warn(`${nome} ${email} A casa 1 ainda não foi limpa!`);
-    } else if (casa === '2') {
-      toast.warn('A casa 2 ainda não foi limpa!');
-    } else {
-      props.history.push('/');
-    }
+    Register(form);
   }
   let allCasas = [];
   allCasas = casas.map(casa => <option value={casa.id}>{casa.nome}</option>);
@@ -86,7 +84,7 @@ function CheckIn({ ...props }) {
               <Formulario onSubmit={handleSubmit} className="inicio">
                 <input
                   type="text"
-                  name="nome"
+                  name="name"
                   placeholder="Nome do cliente"
                   onChange={handleChange}
                 />
