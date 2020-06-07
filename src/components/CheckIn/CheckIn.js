@@ -1,7 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { connect } from 'react-redux';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import * as productActions from '../../actions/Actions';
 import { Header, GiveMargin } from '../../style';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -46,7 +48,12 @@ const Cartao = styled.div`
 
 function CheckIn({ ...props }) {
   const [info, setInfo] = useState('name');
-
+  const { loadCasas, casas } = props;
+  useEffect(() => {
+    if (casas.length <= 0) {
+      loadCasas();
+    }
+  }, [casas, loadCasas]);
   function handleChange(event) {
     setInfo({
       ...info,
@@ -65,7 +72,8 @@ function CheckIn({ ...props }) {
       props.history.push('/');
     }
   }
-
+  let allCasas = [];
+  allCasas = casas.map(casa => <option value={casa.id}>{casa.nome}</option>);
   return (
     <GiveMargin>
       <Container>
@@ -89,23 +97,7 @@ function CheckIn({ ...props }) {
                   onChange={handleChange}
                 />
                 <select name="casa" onChange={handleChange}>
-                  <option value="1">Casa do Jardineiro</option>
-                  <option value="2">Casa da Criada</option>
-                  <option value="3">Casa do Azeiteiro</option>
-                  <option value="4">Casa do Ceifeiro</option>
-                  <option value="5">Casa do Podador</option>
-                  <option value="6">Casa do Caseiro</option>
-                  <option value="7">Casa do Guarda</option>
-                  <option value="8">Casa do Pastor</option>
-                  <option value="9">Casa da Palha</option>
-                  <option value="10">Casa dos Bois</option>
-                  <option value="11">Casa dos Enxertador</option>
-                  <option value="12">Casa da Eira</option>
-                  <option value="13">Casa da Francela</option>
-                  <option value="14">Casa da Lenha</option>
-                  <option value="15">Casa dos Cavalos</option>
-                  <option value="16">Casa Mãe</option>
-                  <option value="16">Casa Puta</option>
+                  {allCasas}
                 </select>
                 <Botao>
                   <button type="submit" className="btn btn-primary">
@@ -122,4 +114,16 @@ function CheckIn({ ...props }) {
   );
 }
 
-export default CheckIn;
+function mapDispatchToProps(dispatch) {
+  return {
+    loadCasas: () => dispatch(productActions.Casas()),
+  };
+}
+
+function mapStateToProps(state) {
+  return {
+    casas: state.casas,
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(CheckIn);

@@ -19,3 +19,20 @@ export function Produtos() {
 export function carrinhoSuccess(compra) {
   return { type: 'INSERT_CART', compra };
 }
+
+export function casasSuccess(casa) {
+  return { type: 'CREATE_CASA', casa };
+}
+
+export function Casas() {
+  return function unamed2(dispatch) {
+    return produtos
+      .getCasas()
+      .then(response => {
+        dispatch(casasSuccess(response.data));
+      })
+      .catch(error => {
+        throw error;
+      });
+  };
+}
