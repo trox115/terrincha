@@ -7,6 +7,7 @@ import EncomendarPage from './components/EncomendarPage/EncomendarPage';
 import NavegacaoPage from './components/NavegacaoPage/NavegacaoPage';
 import Wifi from './components/Wifi/wifi';
 import CheckIn from './components/CheckIn/CheckIn';
+import ModalCart from './components/ModalCart/ModalCart';
 import Footer from './common/Footer';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -14,6 +15,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 function App() {
   return (
     <>
+      <ModalCart />
       <Switch>
         <Route exact path="/" component={HomePage} />
         <Route exact path="/checkin" component={CheckIn} />
