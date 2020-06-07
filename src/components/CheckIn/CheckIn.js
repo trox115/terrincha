@@ -2,9 +2,47 @@ import React, { useState } from 'react';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import { Cartao, Header, GiveMargin } from '../../style';
+import { Header, GiveMargin } from '../../style';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import styled from 'styled-components';
+
+const Formulario = styled.form`
+  margin: 0 auto;
+  input {
+    border: none;
+    border-bottom: 1px solid pink;
+    width: 100%;
+    margin-bottom: 15px;
+  }
+  select {
+    border: none;
+    border-bottom: 1px solid pink;
+    width: 100%;
+    margin-bottom: 15px;
+    background: pink;
+    color: white;
+  }
+`;
+
+const Botao = styled.div`
+  text-align: center;
+  button {
+    background: pink;
+    color: white;
+    margin-bottom: 30px;
+    width: 80%;
+  }
+`;
+const Cartao = styled.div`
+  width: 100%;
+  display: flex;
+  align-items: center;
+  background-color: white;
+  border-radius: 30px;
+  margin-bottom: 5%;
+  color: #282828;
+`;
 
 function CheckIn({ ...props }) {
   const [info, setInfo] = useState('name');
@@ -35,9 +73,9 @@ function CheckIn({ ...props }) {
           <Col md="12">
             <Header />
           </Col>
-          <Col md="6">
+          <Col md="12">
             <Cartao>
-              <form onSubmit={handleSubmit}>
+              <Formulario onSubmit={handleSubmit} className="inicio">
                 <input
                   type="text"
                   name="nome"
@@ -69,10 +107,12 @@ function CheckIn({ ...props }) {
                   <option value="16">Casa Mãe</option>
                   <option value="16">Casa Puta</option>
                 </select>
-                <div>
-                  <button type="submit">Check In</button>
-                </div>
-              </form>
+                <Botao>
+                  <button type="submit" className="btn btn-primary">
+                    Check In
+                  </button>
+                </Botao>
+              </Formulario>
             </Cartao>
             <ToastContainer autoClose={8000} />
           </Col>
