@@ -52,6 +52,8 @@ function CheckIn({ ...props }) {
     name: '',
     email: '',
     phone: '123456789',
+    password: '123456',
+    password_confirmation: '123456',
   });
   const { loadCasas, casas } = props;
   useEffect(() => {
