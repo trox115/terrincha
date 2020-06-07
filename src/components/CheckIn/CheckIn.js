@@ -47,7 +47,7 @@ const Cartao = styled.div`
   color: #282828;
 `;
 
-function CheckIn({ ...props }) {
+function CheckIn({ history, ...props }) {
   const [form, setState] = useState({
     name: '',
     email: '',
@@ -70,7 +70,11 @@ function CheckIn({ ...props }) {
 
   function handleSubmit(event) {
     event.preventDefault();
-    registarCliente(form);
+    registarCliente(form)
+      .then(() => {
+        history.push('/');
+      })
+      .catch(error => error);
   }
   let allCasas = [];
   allCasas = casas.map(casa => <option value={casa.id}>{casa.nome}</option>);
