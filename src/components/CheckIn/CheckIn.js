@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import Container from 'react-bootstrap/Container';
+import axios from 'axios';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import * as productActions from '../../actions/Actions';
-import Register from '../../Api/criarCliente';
 import { Header, GiveMargin } from '../../style';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -55,7 +55,7 @@ function CheckIn({ ...props }) {
     password: '123456',
     password_confirmation: '123456',
   });
-  const { loadCasas, casas } = props;
+  const { loadCasas, casas, registarCliente } = props;
   useEffect(() => {
     if (casas.length <= 0) {
       loadCasas();
@@ -70,7 +70,7 @@ function CheckIn({ ...props }) {
 
   function handleSubmit(event) {
     event.preventDefault();
-    Register(form);
+    registarCliente(form);
   }
   let allCasas = [];
   allCasas = casas.map(casa => <option value={casa.id}>{casa.nome}</option>);
@@ -117,12 +117,14 @@ function CheckIn({ ...props }) {
 function mapDispatchToProps(dispatch) {
   return {
     loadCasas: () => dispatch(productActions.Casas()),
+    registarCliente: form => dispatch(productActions.Client(form)),
   };
 }
 
 function mapStateToProps(state) {
   return {
     casas: state.casas,
+    form: state.form,
   };
 }
 

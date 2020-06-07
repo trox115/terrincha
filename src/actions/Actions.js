@@ -1,4 +1,5 @@
 import * as produtos from '../Api/ProductOp';
+import * as clientes from '../Api/criarCliente';
 
 export function produtosSuccess(produto) {
   return { type: 'CREATE_PRODUTOS', produto };
@@ -30,6 +31,23 @@ export function Casas() {
       .getCasas()
       .then(response => {
         dispatch(casasSuccess(response.data));
+      })
+      .catch(error => {
+        throw error;
+      });
+  };
+}
+
+export function clienteSuccess(cliente) {
+  return { type: 'CLIENTE_CRIADO', cliente };
+}
+
+export function Client(form) {
+  return function unamed2(dispatch) {
+    return clientes
+      .registoCli(form)
+      .then(response => {
+        dispatch(clienteSuccess(response.data));
       })
       .catch(error => {
         throw error;
