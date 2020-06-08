@@ -7,7 +7,7 @@ export function registoCli({ ...props }) {
   return axios
     .post(
       //'http://localhost:3001/clientes/create',
-      'https://terrinchapi.herokuapp.com/clientes/create',
+      'http://localhost:3001/clientes/create',
       {
         user: {
           email,
@@ -25,7 +25,7 @@ export function registoCli({ ...props }) {
 
 export function deleteSession() {
   return axios
-    .delete('https://terrinchapi.herokuapp.com/logout', {
+    .delete('http://localhost:3001/logout', {
       withCredentials: true,
     })
     .then(response => response)
@@ -34,7 +34,7 @@ export function deleteSession() {
 
 export function casaOcupad(casa) {
   return axios
-    .put(`https://terrinchapi.herokuapp.com/casas/${casa.id}`, {
+    .put(`http://localhost:3001/casas/${casa.id}`, {
       withCredentials: true,
     })
     .then(response => response)
@@ -43,7 +43,7 @@ export function casaOcupad(casa) {
 
 export function casaSuja(casa) {
   return axios
-    .put(`https://terrinchapi.herokuapp.com/checkout/${casa}`, {
+    .put(`http://localhost:3001/checkout/${casa}`, {
       withCredentials: true,
     })
     .then(response => response)
