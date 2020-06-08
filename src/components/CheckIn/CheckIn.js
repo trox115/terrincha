@@ -1,33 +1,123 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { connect } from 'react-redux';
 import Container from 'react-bootstrap/Container';
+import axios from 'axios';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import { Cartao, Header, GiveMargin } from '../../style';
+import * as productActions from '../../actions/Actions';
+import { Header, GiveMargin } from '../../style';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import styled from 'styled-components';
+import { casaOcupad } from '../../Api/criarCliente';
 
-function CheckIn({ ...props }) {
-  const [info, setInfo] = useState('name');
+const Formulario = styled.form`
+  margin: 0 auto;
+  input {
+    border: none;
+    border-bottom: 1px solid pink;
+    width: 100%;
+    margin-bottom: 15px;
+  }
+  select {
+    border: none;
+    border-bottom: 1px solid pink;
+    width: 100%;
+    margin-bottom: 15px;
+    background: pink;
+    color: white;
+  }
+`;
 
+const Botao = styled.div`
+  text-align: center;
+  button {
+    background: pink;
+    color: white;
+    margin-bottom: 30px;
+    width: 80%;
+  }
+`;
+const Cartao = styled.div`
+  width: 100%;
+  display: flex;
+  align-items: center;
+  background-color: white;
+  border-radius: 30px;
+  margin-bottom: 5%;
+  color: #282828;
+`;
+
+function CheckIn({ history, ...props }) {
+  let casaSort = [];
+  const [form, setState] = useState({
+    name: '',
+    email: '',
+    phone: '123456789',
+    password: '123456',
+    password_confirmation: '123456',
+    casa: '1',
+  });
+  const { loadCasas, casas, registarCliente, adicionarCasa } = props;
+  useEffect(() => {
+    if (casas.length <= 0) {
+      loadCasas();
+    }
+  }, [casas, loadCasas, casaSort]);
   function handleChange(event) {
-    setInfo({
-      ...info,
+    setState({
+      ...form,
       [event.target.name]: event.target.value,
     });
   }
 
-  function handleSubmit(event) {
-    event.preventDefault();
-    const { nome, email, casa } = info;
-    if (casa === '1') {
-      toast.warn(`${nome} ${email} A casa 1 ainda não foi limpa!`);
-    } else if (casa === '2') {
-      toast.warn('A casa 2 ainda não foi limpa!');
+  function sendError(casa) {
+    if (casa.limpa === false) {
+      toast.error(`Lamentamos mas a ${casa.nome} não se encontra limpa`, {
+        position: 'top-right',
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
     } else {
-      props.history.push('/');
+      toast.error(`Lamentamos mas a ${casa.nome} está ocupada`, {
+        position: 'top-right',
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
     }
   }
 
+  function handleSubmit(event) {
+    event.preventDefault();
+    const casa = casas.find(x => x.id == parseInt(form.casa, 10));
+    if (casa.limpa && casa.ocupada === false) {
+      registarCliente(form)
+        .then(() => {
+          casaOcupad(casa)
+            .then(() => {
+              adicionarCasa(casa);
+              history.push('/');
+            })
+            .catch(error => error);
+        })
+        .catch(error => error);
+    } else {
+      sendError(casa);
+    }
+  }
+  let allCasas = [];
+  allCasas = casas.map(casa => <option value={casa.id}>{casa.nome}</option>);
+  casaSort = allCasas.sort(function sorting(a, b) {
+    return parseInt(a.props.value, 10) - parseInt(b.props.value, 10);
+  });
   return (
     <GiveMargin>
       <Container>
@@ -35,12 +125,12 @@ function CheckIn({ ...props }) {
           <Col md="12">
             <Header />
           </Col>
-          <Col md="6">
+          <Col md="12">
             <Cartao>
-              <form onSubmit={handleSubmit}>
+              <Formulario onSubmit={handleSubmit} className="inicio">
                 <input
                   type="text"
-                  name="nome"
+                  name="name"
                   placeholder="Nome do cliente"
                   onChange={handleChange}
                 />
@@ -51,28 +141,14 @@ function CheckIn({ ...props }) {
                   onChange={handleChange}
                 />
                 <select name="casa" onChange={handleChange}>
-                  <option value="1">Casa do Jardineiro</option>
-                  <option value="2">Casa da Criada</option>
-                  <option value="3">Casa do Azeiteiro</option>
-                  <option value="4">Casa do Ceifeiro</option>
-                  <option value="5">Casa do Podador</option>
-                  <option value="6">Casa do Caseiro</option>
-                  <option value="7">Casa do Guarda</option>
-                  <option value="8">Casa do Pastor</option>
-                  <option value="9">Casa da Palha</option>
-                  <option value="10">Casa dos Bois</option>
-                  <option value="11">Casa dos Enxertador</option>
-                  <option value="12">Casa da Eira</option>
-                  <option value="13">Casa da Francela</option>
-                  <option value="14">Casa da Lenha</option>
-                  <option value="15">Casa dos Cavalos</option>
-                  <option value="16">Casa Mãe</option>
-                  <option value="16">Casa Puta</option>
+                  {casaSort}
                 </select>
-                <div>
-                  <button type="submit">Check In</button>
-                </div>
-              </form>
+                <Botao>
+                  <button type="submit" className="btn btn-primary">
+                    Check In
+                  </button>
+                </Botao>
+              </Formulario>
             </Cartao>
             <ToastContainer autoClose={8000} />
           </Col>
@@ -82,4 +158,19 @@ function CheckIn({ ...props }) {
   );
 }
 
-export default CheckIn;
+function mapDispatchToProps(dispatch) {
+  return {
+    loadCasas: () => dispatch(productActions.Casas()),
+    registarCliente: form => dispatch(productActions.Client(form)),
+    adicionarCasa: casa => dispatch(productActions.adicionarCasa(casa)),
+  };
+}
+
+function mapStateToProps(state) {
+  return {
+    casas: state.casas,
+    form: state.form,
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(CheckIn);
