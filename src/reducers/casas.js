@@ -1,8 +1,8 @@
-function CartReducer(state = [], action) {
+function CasaReducer(state = [], action) {
   const INITIAL_STATE = [];
   switch (action.type) {
-    case 'INSERT_CART':
-      return [...state, ...action.compra];
+    case 'CREATE_CASA':
+      return [...state, ...action.casa];
     case 'DELETE_SESSION':
       return INITIAL_STATE;
     default:
@@ -10,4 +10,4 @@ function CartReducer(state = [], action) {
   }
 }
 
-export default CartReducer;
+export default CasaReducer;

@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -8,8 +9,11 @@ import Chat from '../assets/icones/2.png';
 import Notifica from '../assets/icones/3.png';
 import Perfil from '../assets/icones/4.png';
 import Carrinho from '../assets/icones/5.png';
+import * as logout from '../actions/Actions';
+import { casaSuja } from '../Api/criarCliente';
 
-function Footer() {
+function Footer({ logout, user }) {
+  console.log(user[1]);
   function startChat() {
     const a = document.getElementById('zsiq_float');
     if (a.style.display === 'none') {
@@ -28,12 +32,18 @@ function Footer() {
     };
   }
 
+  function checkout() {
+    casaSuja(user[1].id)
+      .then(() => logout())
+      .catch(error => error);
+  }
+
   return (
     <FooterEl className="fixed-bottom">
       <Container>
         <Row>
           <Col md="1" />
-          <Col md="2">
+          <Col md="2" onClick={checkout}>
             <img src={Checkout} alt="Checkout" />
             <p>Checkout</p>
           </Col>
@@ -60,4 +70,16 @@ function Footer() {
   );
 }
 
-export default Footer;
+function mapStateToProps(state) {
+  return {
+    user: state.cliente,
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    logout: () => dispatch(logout.logout()),
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Footer);

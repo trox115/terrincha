@@ -9,6 +9,13 @@ export function getProdutos() {
     .catch(erro => erro);
 }
 
+export function getCasas() {
+  return axios
+    .get('http://localhost:3001/casas/index', { withCredentials: true })
+    .then(response => response)
+    .catch(erro => erro);
+}
+
 export function test() {
   return 0;
 }
