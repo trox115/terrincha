@@ -62,10 +62,10 @@ function HomePage() {
             </Link>
           </Col>
           <Col md="6">
-            <Link to="/navegacao">
+            <Link to="/pequenoalmoco">
               <Cartao>
                 <h1>Horas de Pequeno Almoço</h1>
-                <img src={Pequeno} alt="icone-navegacao" />
+                <img src={Pequeno} alt="icone-pequenoalmoço" />
               </Cartao>
             </Link>
           </Col>
