@@ -1,24 +1,33 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import Container from 'react-bootstrap/Container';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
+import * as productActions from '../../actions/Actions';
 /* eslint-disable object-curly-newline */
 import { Produtos, ImagePlaceholder, PrecoCompra, Compra } from '../../style';
 import Carrinho from '../../assets/icones/5.png';
 
 function Modal({ ...props }) {
-  const { produto } = props;
+  const { produto, insertCart } = props;
   const [qtdd, setqtdd] = useState({
     quantidade: 1,
   });
   let total = qtdd.quantidade * produto.preco;
   useEffect(() => {
-    total = qtdd * produto.preco;
+    total = qtdd.quantidade * produto.preco;
   }, [qtdd]);
 
   function handleChange(event) {
     setqtdd({ [event.target.name]: event.target.value });
+  }
+
+  function handleSubmit(event) {
+    event.preventDefault();
+    const compra = produto;
+    compra.quantidade = qtdd.quantidade;
+    insertCart([compra]);
   }
 
   return (
@@ -48,7 +57,7 @@ function Modal({ ...props }) {
                       name="quantidade"
                       onChange={handleChange}
                     />
-                    <Compra>
+                    <Compra onClick={handleSubmit}>
                       Adicionar ao Carrinho
                       <img src={Carrinho} alt="carrinho" />
                     </Compra>
@@ -69,6 +78,13 @@ function Modal({ ...props }) {
 
 Modal.propTypes = {
   produto: PropTypes.instanceOf(Array).isRequired,
+  insertCart: PropTypes.func.isRequired,
 };
 
-export default Modal;
+function mapDispatchToProps(dispatch) {
+  return {
+    insertCart: compras => dispatch(productActions.carrinhoSuccess(compras)),
+  };
+}
+
+export default connect(null, mapDispatchToProps)(Modal);
