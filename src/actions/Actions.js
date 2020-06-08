@@ -55,6 +55,10 @@ export function Client(form) {
   };
 }
 
+export function EncomendaSuccess() {
+  return { type: 'ENCOMENDA_CRIADA' };
+}
+
 export function deleteSe(response) {
   return { type: 'DELETE_SESSION', response };
 }
