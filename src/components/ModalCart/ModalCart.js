@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Container from 'react-bootstrap/Container';
+import axios from 'axios';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 /* eslint-disable object-curly-newline */
@@ -23,18 +24,52 @@ const Tbl = styled.table`
   }
 `;
 
+function inserirEncomenda(cliente_id, produto_id, quantidade) {
+  console.log(cliente_id);
+  return axios
+    .post(
+      'http://localhost:3001/encomenda/create',
+      {
+        encomenda: {
+          cliente_id,
+          produto_id,
+          quantidade,
+        },
+      },
+      true,
+    )
+    .then(response => response)
+    .catch(error => error);
+}
+
 const UltimoPasso = styled.div`
   display: block;
 `;
 
 function ModalCart({ ...props }) {
   let allProducts = [];
-  const { carrinho } = props;
+  const { carrinho, user, Encomendar } = props;
   let total = 0;
   total = carrinho.reduce(
     (accum, item) => accum + item.quantidade * item.preco,
     0,
   );
+
+  function handleClick() {
+    const placeEncomenda = carrinho.map(produto => [
+      user[0].id,
+      produto.id,
+      parseInt(produto.quantidade, 10),
+    ]);
+    for (let i = 0; i < placeEncomenda.length; i += 1) {
+      inserirEncomenda(
+        placeEncomenda[i][0],
+        placeEncomenda[i][1],
+        placeEncomenda[i][2],
+      );
+    }
+    Encomendar();
+  }
 
   allProducts = carrinho.map(produto => (
     <tr key={produto.id}>
@@ -78,7 +113,7 @@ function ModalCart({ ...props }) {
                 Total:
                 {total}€
               </h4>
-              <Compra>Finalizar</Compra>
+              <Compra onClick={handleClick}>Finalizar</Compra>
             </UltimoPasso>
           </Row>
         </Container>
@@ -92,6 +127,7 @@ ModalCart.propTypes = {
 };
 function mapStateToProps(state) {
   return {
+    user: state.cliente,
     produtos: state.produtos,
     carrinho: state.carrinho,
   };
@@ -99,7 +135,7 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    insertCart: compras => dispatch(productActions.carrinhoSuccess(compras)),
+    Encomendar: () => dispatch(productActions.EncomendaSuccess()),
   };
 }
 export default connect(mapStateToProps, mapDispatchToProps)(ModalCart);
