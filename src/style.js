@@ -109,6 +109,11 @@ h1{
   margin-left:5%;
 }
 
+p{
+  font-size:21px;
+  margin-left:5%;
+}
+
 img{
   height:50px;
   float:right;
