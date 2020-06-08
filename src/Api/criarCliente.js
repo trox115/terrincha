@@ -37,3 +37,12 @@ export function casaOcupad(casa) {
     .then(response => response)
     .catch(erro => erro);
 }
+
+export function casaSuja(casa) {
+  return axios
+    .put(`http://localhost:3001/checkout/${casa}`, {
+      withCredentials: true,
+    })
+    .then(response => response)
+    .catch(erro => erro);
+}

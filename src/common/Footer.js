@@ -10,8 +10,10 @@ import Notifica from '../assets/icones/3.png';
 import Perfil from '../assets/icones/4.png';
 import Carrinho from '../assets/icones/5.png';
 import * as logout from '../actions/Actions';
+import { casaSuja } from '../Api/criarCliente';
 
-function Footer({ logout }) {
+function Footer({ logout, user }) {
+  console.log(user[1]);
   function startChat() {
     const a = document.getElementById('zsiq_float');
     if (a.style.display === 'none') {
@@ -31,7 +33,9 @@ function Footer({ logout }) {
   }
 
   function checkout() {
-    logout();
+    casaSuja(user[1].id)
+      .then(() => logout())
+      .catch(error => error);
   }
 
   return (
@@ -66,10 +70,16 @@ function Footer({ logout }) {
   );
 }
 
+function mapStateToProps(state) {
+  return {
+    user: state.cliente,
+  };
+}
+
 function mapDispatchToProps(dispatch) {
   return {
     logout: () => dispatch(logout.logout()),
   };
 }
 
-export default connect(null, mapDispatchToProps)(Footer);
+export default connect(mapStateToProps, mapDispatchToProps)(Footer);
