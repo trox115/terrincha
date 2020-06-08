@@ -28,3 +28,12 @@ export function deleteSession() {
     .then(response => response)
     .catch(erro => erro);
 }
+
+export function casaOcupad(casa) {
+  return axios
+    .put(`http://localhost:3001/casas/${casa.id}`, {
+      withCredentials: true,
+    })
+    .then(response => response)
+    .catch(erro => erro);
+}

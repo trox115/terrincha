@@ -9,6 +9,7 @@ import { Header, GiveMargin } from '../../style';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import styled from 'styled-components';
+import { casaOcupad } from '../../Api/criarCliente';
 
 const Formulario = styled.form`
   margin: 0 auto;
@@ -54,6 +55,7 @@ function CheckIn({ history, ...props }) {
     phone: '123456789',
     password: '123456',
     password_confirmation: '123456',
+    casa: '1',
   });
   const { loadCasas, casas, registarCliente } = props;
   useEffect(() => {
@@ -68,13 +70,46 @@ function CheckIn({ history, ...props }) {
     });
   }
 
+  function sendError(casa) {
+    if (casa.limpa === false) {
+      toast.error(`Lamentamos mas a ${casa.nome} não se encontra limpa`, {
+        position: 'top-right',
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+    } else {
+      toast.error(`Lamentamos mas a ${casa.nome} está ocupada`, {
+        position: 'top-right',
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+    }
+  }
+
   function handleSubmit(event) {
     event.preventDefault();
-    registarCliente(form)
-      .then(() => {
-        history.push('/');
-      })
-      .catch(error => error);
+    const casa = casas.find(x => x.id == parseInt(form.casa, 10));
+    if (casa.limpa && casa.ocupada === false) {
+      registarCliente(form)
+        .then(() => {
+          casaOcupad(casa)
+            .then(() => {
+              history.push('/');
+            })
+            .catch(error => error);
+        })
+        .catch(error => error);
+    } else {
+      sendError(casa);
+    }
   }
   let allCasas = [];
   allCasas = casas.map(casa => <option value={casa.id}>{casa.nome}</option>);
