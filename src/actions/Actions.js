@@ -54,3 +54,20 @@ export function Client(form) {
       });
   };
 }
+
+export function deleteSe(response) {
+  return { type: 'DELETE_SESSION', response };
+}
+
+export function logout() {
+  return function unamed(dispatch) {
+    return clientes
+      .deleteSession()
+      .then(response => {
+        dispatch(deleteSe(response));
+      })
+      .catch(error => {
+        throw error;
+      });
+  };
+}

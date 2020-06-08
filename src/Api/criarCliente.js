@@ -22,6 +22,9 @@ export function registoCli({ ...props }) {
     .catch(response => response);
 }
 
-export function bother() {
-  console.log('bother');
+export function deleteSession() {
+  return axios
+    .delete('http://localhost:3000/logout', { withCredentials: true })
+    .then(response => response)
+    .catch(erro => erro);
 }
