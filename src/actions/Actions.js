@@ -71,3 +71,13 @@ export function logout() {
       });
   };
 }
+
+export function addCasaUser(casa) {
+  return { type: 'ADD_CASA_TO_USER', casa };
+}
+
+export function adicionarCasa(casa) {
+  return function unamed(dispatch) {
+    dispatch(addCasaUser(casa));
+  };
+}

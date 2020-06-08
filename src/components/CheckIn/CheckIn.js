@@ -49,6 +49,7 @@ const Cartao = styled.div`
 `;
 
 function CheckIn({ history, ...props }) {
+  let casaSort = [];
   const [form, setState] = useState({
     name: '',
     email: '',
@@ -57,12 +58,12 @@ function CheckIn({ history, ...props }) {
     password_confirmation: '123456',
     casa: '1',
   });
-  const { loadCasas, casas, registarCliente } = props;
+  const { loadCasas, casas, registarCliente, adicionarCasa } = props;
   useEffect(() => {
     if (casas.length <= 0) {
       loadCasas();
     }
-  }, [casas, loadCasas]);
+  }, [casas, loadCasas, casaSort]);
   function handleChange(event) {
     setState({
       ...form,
@@ -102,6 +103,7 @@ function CheckIn({ history, ...props }) {
         .then(() => {
           casaOcupad(casa)
             .then(() => {
+              adicionarCasa(casa);
               history.push('/');
             })
             .catch(error => error);
@@ -113,6 +115,9 @@ function CheckIn({ history, ...props }) {
   }
   let allCasas = [];
   allCasas = casas.map(casa => <option value={casa.id}>{casa.nome}</option>);
+  casaSort = allCasas.sort(function sorting(a, b) {
+    return parseInt(a.props.value, 10) - parseInt(b.props.value, 10);
+  });
   return (
     <GiveMargin>
       <Container>
@@ -136,7 +141,7 @@ function CheckIn({ history, ...props }) {
                   onChange={handleChange}
                 />
                 <select name="casa" onChange={handleChange}>
-                  {allCasas}
+                  {casaSort}
                 </select>
                 <Botao>
                   <button type="submit" className="btn btn-primary">
@@ -157,6 +162,7 @@ function mapDispatchToProps(dispatch) {
   return {
     loadCasas: () => dispatch(productActions.Casas()),
     registarCliente: form => dispatch(productActions.Client(form)),
+    adicionarCasa: casa => dispatch(productActions.adicionarCasa(casa)),
   };
 }
 
