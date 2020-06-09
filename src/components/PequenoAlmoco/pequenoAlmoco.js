@@ -11,6 +11,7 @@ import setHours from 'date-fns/setHours';
 import setMinutes from 'date-fns/setMinutes';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
+import { InserirPA } from '../../Api/criarCliente.js';
 
 const InfoHeader2 = styled.div`
   width: 100%;
@@ -112,7 +113,7 @@ function PequenoAlmoco({ ...props }) {
 
   function handleClick() {
     console.log(startDate);
-    console.log(user[0].id);
+    InserirPA(user[0].id, user[1].id, startDate);
   }
 
   return (

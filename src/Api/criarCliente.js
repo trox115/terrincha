@@ -49,3 +49,21 @@ export function casaSuja(casa) {
     .then(response => response)
     .catch(erro => erro);
 }
+
+export function InserirPA(cliente_id, casa_id, horas) {
+  return axios
+    .post(
+      //'http://localhost:3001/clientes/create',
+      'http://localhost:3001/palmoco/create',
+      {
+        palmoco: {
+          cliente_id,
+          casa_id,
+          horas,
+        },
+      },
+      true,
+    )
+    .then(response => response)
+    .catch(response => response);
+}
