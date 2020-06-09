@@ -159,7 +159,7 @@ function AtividadesQuinta({ ...props }) {
       const a = document.getElementById('siqiframe').contentWindow.document;
       const b = a.getElementById('msgarea');
       b.value =
-        'Boa tarde gostaria de saber mais acerca das atividades da Quinta';
+        'Boa tarde gostaria de saber mais acerca das atividades da Quinta ';
       b.focus();
       document.addEventListener('keypress', onKeyEvent, false);
       document.addEventListener('keydown', onKeyEvent, false);
@@ -168,7 +168,7 @@ function AtividadesQuinta({ ...props }) {
     }
     if (count == 2) {
       wait(2000);
-      var evt = new KeyboardEvent('keydown', { keyCode: 188, which: 188 });
+      var evt = new KeyboardEvent('keydown', { keyCode: 'Enter', which: 13 });
       document.dispatchEvent(evt);
     }
   }, [count]);
