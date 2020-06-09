@@ -38,7 +38,7 @@ function HomePage() {
             </Link>
           </Col>
           <Col md="6">
-            <Link to="/navegacao">
+            <Link to="/atividadesQuinta">
               <Cartao>
                 <h1>Atividades na Quinta</h1>
                 <img src={Atividades} alt="icone-navegacao" />

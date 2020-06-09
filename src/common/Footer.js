@@ -16,10 +16,12 @@ function Footer({ logout, user }) {
   console.log(user[1]);
   function startChat() {
     const a = document.getElementById('zsiq_float');
-    if (a.style.display === 'none') {
-      a.style.display = 'block';
+    const b = document.getElementsByClassName('zsiq_floatmain');
+    console.log(a.style.visibility);
+    if (a.style.visibility === 'hidden') {
+      a.style.visibility = 'visible';
     } else {
-      a.style.display = 'none';
+      a.style.visibility = 'hidden';
     }
   }
 
