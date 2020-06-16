@@ -9,6 +9,7 @@ import Row from 'react-bootstrap/Row';
 import styled from 'styled-components';
 import * as productActions from '../../actions/Actions';
 import { Compra } from '../../style';
+import { ToastContainer, toast } from 'react-toastify';
 
 const Tbl = styled.table`
   width: 100%;
@@ -47,6 +48,18 @@ const UltimoPasso = styled.div`
 `;
 
 function ModalCart({ ...props }) {
+  function sendToast() {
+    toast.success(`A sua encomenda estará á sua espera na recepção`, {
+      position: 'top-right',
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
+  }
+
   let allProducts = [];
   const { carrinho, user, Encomendar } = props;
   let total = 0;
@@ -69,6 +82,7 @@ function ModalCart({ ...props }) {
       );
     }
     Encomendar();
+    sendToast();
   }
 
   allProducts = carrinho.map(produto => (
@@ -117,6 +131,7 @@ function ModalCart({ ...props }) {
             </UltimoPasso>
           </Row>
         </Container>
+        <ToastContainer autoClose={8000} />
       </div>
     </div>
   );

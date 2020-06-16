@@ -48,7 +48,7 @@ function HomePage() {
           <Col md="6">
             <Link to="/encomendar">
               <Cartao>
-                <h1>Produtos Regionais</h1>
+                <h1>Produtos da Quinta</h1>
                 <img src={Encomendar} alt="icone-navegacao" />
               </Cartao>
             </Link>
