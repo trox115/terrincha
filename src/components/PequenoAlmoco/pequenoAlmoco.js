@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Container from 'react-bootstrap/Container';
 import Col from 'react-bootstrap/Col';
@@ -131,8 +132,7 @@ function PequenoAlmoco({ ...props }) {
               <InfoHeader2>
                 <p>
                   Estimado(a)
-                  {user[0].name}
-                  ,
+                  {user[0].name},
                 </p>
                 <p>
                   Tendo em consideração o momento que vivemos e de modo a
@@ -187,4 +187,7 @@ function mapStateToProps(state) {
   };
 }
 
+PequenoAlmoco.propTypes = {
+  user: PropTypes.instanceOf(Array).isRequired,
+};
 export default connect(mapStateToProps, null)(PequenoAlmoco);

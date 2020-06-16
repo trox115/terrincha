@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Container from 'react-bootstrap/Container';
 import axios from 'axios';
@@ -58,9 +59,7 @@ function CheckIn({ history, ...props }) {
     password_confirmation: '123456',
     casa: '1',
   });
-  const {
-    loadCasas, casas, registarCliente, adicionarCasa,
-  } = props;
+  const { loadCasas, casas, registarCliente, adicionarCasa } = props;
   useEffect(() => {
     if (casas.length <= 0) {
       loadCasas();
@@ -117,7 +116,9 @@ function CheckIn({ history, ...props }) {
   }
   let allCasas = [];
   allCasas = casas.map(casa => <option value={casa.id}>{casa.nome}</option>);
-  casaSort = allCasas.sort((a, b) => parseInt(a.props.value, 10) - parseInt(b.props.value, 10));
+  casaSort = allCasas.sort(
+    (a, b) => parseInt(a.props.value, 10) - parseInt(b.props.value, 10),
+  );
   return (
     <GiveMargin>
       <Container>
@@ -172,5 +173,12 @@ function mapStateToProps(state) {
     form: state.form,
   };
 }
+
+CheckIn.propTypes = {
+  loadCasas: PropTypes.func.isRequired,
+  registarCliente: PropTypes.func.isRequired,
+  adicionarCasa: PropTypes.func.isRequired,
+  casas: PropTypes.instanceOf(Array).isRequired,
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(CheckIn);
