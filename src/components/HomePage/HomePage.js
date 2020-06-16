@@ -38,7 +38,7 @@ function HomePage() {
             </Link>
           </Col>
           <Col md="6">
-            <Link to="/navegacao">
+            <Link to="/atividadesQuinta">
               <Cartao>
                 <h1>Atividades na Quinta</h1>
                 <img src={Atividades} alt="icone-navegacao" />
@@ -48,13 +48,13 @@ function HomePage() {
           <Col md="6">
             <Link to="/encomendar">
               <Cartao>
-                <h1>Encomende e leve para casa</h1>
+                <h1>Produtos da Quinta</h1>
                 <img src={Encomendar} alt="icone-navegacao" />
               </Cartao>
             </Link>
           </Col>
           <Col md="6">
-            <Link to="/navegacao">
+            <Link to="/sociais">
               <Cartao>
                 <h1>Terrincha nas redes sociais</h1>
                 <img src={Social} alt="icone-navegacao" />
@@ -62,10 +62,10 @@ function HomePage() {
             </Link>
           </Col>
           <Col md="6">
-            <Link to="/navegacao">
+            <Link to="/pequenoalmoco">
               <Cartao>
                 <h1>Horas de Pequeno Almoço</h1>
-                <img src={Pequeno} alt="icone-navegacao" />
+                <img src={Pequeno} alt="icone-pequenoalmoço" />
               </Cartao>
             </Link>
           </Col>
