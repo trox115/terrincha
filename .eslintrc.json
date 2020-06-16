@@ -13,7 +13,6 @@
   },
   "extends": ["airbnb", "plugin:react/recommended"],
   "plugins": ["react"],
-  "ignorePatterns": ["ModalCart.js", "src/ModalCart/ModalCart.js"],
   "rules": {
     "react/jsx-filename-extension": ["warn", { "extensions": [".js", ".jsx"] }],
     "import/no-unresolved": "off",

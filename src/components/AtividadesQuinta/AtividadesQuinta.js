@@ -7,11 +7,11 @@ import Button from 'react-bootstrap/Button';
 import Accordion from 'react-bootstrap/Accordion';
 import Card from 'react-bootstrap/Card';
 import styled from 'styled-components';
-import { InfoHeader, GiveMargin } from '../../style';
-import Atividades from '../../assets/img/3.png';
 import setHours from 'date-fns/setHours';
 import setMinutes from 'date-fns/setMinutes';
 import DatePicker from 'react-datepicker';
+import Atividades from '../../assets/img/3.png';
+import { InfoHeader, GiveMargin } from '../../style';
 import 'react-datepicker/dist/react-datepicker.css';
 import { InserirPA } from '../../Api/criarCliente.js';
 
@@ -126,28 +126,28 @@ export const Compra = styled.button`
 `;
 
 function simulateKey(keyCode, type, modifiers) {
-  var evtName = typeof type === 'string' ? 'key' + type : 'keydown';
+  const evtName = typeof type === 'string' ? `key${type}` : 'keydown';
   var modifier = typeof modifiers === 'object' ? modifier : {};
 
-  var event = document.createEvent('HTMLEvents');
+  const event = document.createEvent('HTMLEvents');
   event.initEvent(evtName, true, false);
   event.keyCode = keyCode;
 
-  for (var i in modifiers) {
+  for (const i in modifiers) {
     event[i] = modifiers[i];
   }
 
   document.dispatchEvent(event);
 }
 
-var onKeyEvent = function(event) {
-  var state = 'pressed';
+const onKeyEvent = function (event) {
+  let state = 'pressed';
 
   if (event.type !== 'keypress') {
     state = event.type.replace('key', '');
   }
 
-  console.log('Key with keyCode ' + event.keyCode + ' is ' + state);
+  console.log(`Key with keyCode ${event.keyCode} is ${state}`);
 };
 
 function AtividadesQuinta({ ...props }) {
@@ -158,8 +158,7 @@ function AtividadesQuinta({ ...props }) {
     if (count !== 0) {
       const a = document.getElementById('siqiframe').contentWindow.document;
       const b = a.getElementById('msgarea');
-      b.value =
-        'Boa tarde gostaria de saber mais acerca das atividades da Quinta ';
+      b.value = 'Boa tarde gostaria de saber mais acerca das atividades da Quinta ';
       b.focus();
       document.addEventListener('keypress', onKeyEvent, false);
       document.addEventListener('keydown', onKeyEvent, false);
@@ -168,14 +167,14 @@ function AtividadesQuinta({ ...props }) {
     }
     if (count == 2) {
       wait(2000);
-      var evt = new KeyboardEvent('keydown', { keyCode: 'Enter', which: 13 });
+      const evt = new KeyboardEvent('keydown', { keyCode: 'Enter', which: 13 });
       document.dispatchEvent(evt);
     }
   }, [count]);
 
   function wait(ms) {
-    var start = new Date().getTime();
-    var end = start;
+    const start = new Date().getTime();
+    let end = start;
     while (end < start + ms) {
       end = new Date().getTime();
     }
@@ -192,10 +191,10 @@ function AtividadesQuinta({ ...props }) {
 
   function eventFire(el, etype) {
     if (el.fireEvent) {
-      el.fireEvent('on' + etype);
+      el.fireEvent(`on${etype}`);
       write();
     } else {
-      var evObj = document.createEvent('Events');
+      const evObj = document.createEvent('Events');
       evObj.initEvent(etype, true, false);
       el.dispatchEvent(evObj);
     }

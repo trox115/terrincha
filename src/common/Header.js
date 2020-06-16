@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useHistory } from 'react-router-dom';
 import { Nav, Navbar } from 'react-bootstrap';
-import { useHistory } from 'react-router-dom';
+
 import logo from '../logo.png';
 
 const Header = ({ ...props }) => {

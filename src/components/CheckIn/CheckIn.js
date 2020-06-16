@@ -4,11 +4,11 @@ import Container from 'react-bootstrap/Container';
 import axios from 'axios';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import { ToastContainer, toast } from 'react-toastify';
+import styled from 'styled-components';
 import * as productActions from '../../actions/Actions';
 import { Header, GiveMargin } from '../../style';
-import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import styled from 'styled-components';
 import { casaOcupad } from '../../Api/criarCliente';
 
 const Formulario = styled.form`
@@ -58,7 +58,9 @@ function CheckIn({ history, ...props }) {
     password_confirmation: '123456',
     casa: '1',
   });
-  const { loadCasas, casas, registarCliente, adicionarCasa } = props;
+  const {
+    loadCasas, casas, registarCliente, adicionarCasa,
+  } = props;
   useEffect(() => {
     if (casas.length <= 0) {
       loadCasas();
@@ -115,9 +117,7 @@ function CheckIn({ history, ...props }) {
   }
   let allCasas = [];
   allCasas = casas.map(casa => <option value={casa.id}>{casa.nome}</option>);
-  casaSort = allCasas.sort(function sorting(a, b) {
-    return parseInt(a.props.value, 10) - parseInt(b.props.value, 10);
-  });
+  casaSort = allCasas.sort((a, b) => parseInt(a.props.value, 10) - parseInt(b.props.value, 10));
   return (
     <GiveMargin>
       <Container>
