@@ -2,9 +2,9 @@ import axios from 'axios';
 
 export function registoCli({ ...props }) {
   // eslint-disable-next-line camelcase
-  const {
-    email, name, phone, password, password_confirmation,
-  } = props;
+  /* eslint-disable camelcase */
+
+  const { email, name, phone, password, password_confirmation } = props;
 
   return axios
     .post(
