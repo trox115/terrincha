@@ -59,7 +59,9 @@ function CheckIn({ history, ...props }) {
     password_confirmation: '123456',
     casa: '1',
   });
-  const { loadCasas, casas, registarCliente, adicionarCasa } = props;
+  const {
+    loadCasas, casas, registarCliente, adicionarCasa,
+  } = props;
   useEffect(() => {
     if (casas.length <= 0) {
       loadCasas();

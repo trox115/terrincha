@@ -132,7 +132,8 @@ function PequenoAlmoco({ ...props }) {
               <InfoHeader2>
                 <p>
                   Estimado(a)
-                  {user[0].name},
+                  {user[0].name}
+                  ,
                 </p>
                 <p>
                   Tendo em consideração o momento que vivemos e de modo a

@@ -133,8 +133,7 @@ function AtividadesQuinta({ ...props }) {
     if (count !== 0) {
       const a = document.getElementById('siqiframe').contentWindow.document;
       const b = a.getElementById('msgarea');
-      b.value =
-        'Boa tarde gostaria de saber mais acerca das atividades da Quinta ';
+      b.value = 'Boa tarde gostaria de saber mais acerca das atividades da Quinta ';
       b.focus();
       setCount(2);
     }
