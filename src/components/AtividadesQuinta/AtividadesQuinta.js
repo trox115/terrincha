@@ -125,31 +125,6 @@ export const Compra = styled.button`
   justify-content: center;
 `;
 
-function simulateKey(keyCode, type, modifiers) {
-  const evtName = typeof type === 'string' ? `key${type}` : 'keydown';
-  var modifier = typeof modifiers === 'object' ? modifier : {};
-
-  const event = document.createEvent('HTMLEvents');
-  event.initEvent(evtName, true, false);
-  event.keyCode = keyCode;
-
-  for (const i in modifiers) {
-    event[i] = modifiers[i];
-  }
-
-  document.dispatchEvent(event);
-}
-
-const onKeyEvent = function (event) {
-  let state = 'pressed';
-
-  if (event.type !== 'keypress') {
-    state = event.type.replace('key', '');
-  }
-
-  console.log(`Key with keyCode ${event.keyCode} is ${state}`);
-};
-
 function AtividadesQuinta({ ...props }) {
   const { user } = props;
   const [count, setCount] = useState(0);
@@ -158,11 +133,9 @@ function AtividadesQuinta({ ...props }) {
     if (count !== 0) {
       const a = document.getElementById('siqiframe').contentWindow.document;
       const b = a.getElementById('msgarea');
-      b.value = 'Boa tarde gostaria de saber mais acerca das atividades da Quinta ';
+      b.value =
+        'Boa tarde gostaria de saber mais acerca das atividades da Quinta ';
       b.focus();
-      document.addEventListener('keypress', onKeyEvent, false);
-      document.addEventListener('keydown', onKeyEvent, false);
-      document.addEventListener('keyup', onKeyEvent, false);
       setCount(2);
     }
     if (count == 2) {
