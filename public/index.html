@@ -1,6 +1,24 @@
 <!DOCTYPE html>
 <html lang="pt">
   <head>
+    <script type="text/javascript">
+      var $zoho = $zoho || {};
+      $zoho.salesiq = $zoho.salesiq || {
+        widgetcode:
+          'a78399963f812b9e335789182d78c47dbf5ff2e4ee72760f62da51807f6de969',
+        values: {},
+        ready: function() {},
+      };
+      var d = document;
+      s = d.createElement('script');
+      s.type = 'text/javascript';
+      s.id = 'zsiqscript';
+      s.defer = true;
+      s.src = 'https://salesiq.zoho.com/widget';
+      t = d.getElementsByTagName('script')[0];
+      t.parentNode.insertBefore(s, t);
+      d.write("<div id='zsiqwidget'></div>");
+    </script>
     <meta charset="utf-8" />
     <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -16,25 +34,26 @@
     <script>
       if ('serviceWorker' in navigator) {
         window.addEventListener('load', function() {
-          navigator.serviceWorker.register('worker.js').then(function(registration) {
-            console.log('Worker registration successful', registration.scope);
-          }, function(err) {
-            console.log('Worker registration failed', err);
-          }).catch(function(err) {
-            console.log(err);
-          });
+          navigator.serviceWorker
+            .register('worker.js')
+            .then(
+              function(registration) {
+                console.log(
+                  'Worker registration successful',
+                  registration.scope,
+                );
+              },
+              function(err) {
+                console.log('Worker registration failed', err);
+              },
+            )
+            .catch(function(err) {
+              console.log(err);
+            });
         });
       } else {
         console.log('Service Worker is not supported by browser.');
       }
     </script>
-    
-    <script type="text/javascript">
-      var $zoho=$zoho || {};$zoho.salesiq = $zoho.salesiq || 
-      {widgetcode:"a78399963f812b9e335789182d78c47dbf5ff2e4ee72760f62da51807f6de969", values:{},ready:function(){}};
-      var d=document;s=d.createElement("script");s.type="text/javascript";s.id="zsiqscript";s.defer=true;
-      s.src="https://salesiq.zoho.com/widget";t=d.getElementsByTagName("script")[0];t.parentNode.insertBefore(s,t);d.write("<div id='zsiqwidget'></div>");
-      </script>
-      
   </body>
 </html>

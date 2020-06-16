@@ -6,6 +6,7 @@ export function registoCli({ ...props }) {
 
   return axios
     .post(
+      //'http://localhost:3001/clientes/create',
       'http://localhost:3001/clientes/create',
       {
         user: {
@@ -24,7 +25,9 @@ export function registoCli({ ...props }) {
 
 export function deleteSession() {
   return axios
-    .delete('http://localhost:3000/logout', { withCredentials: true })
+    .delete('http://localhost:3001/logout', {
+      withCredentials: true,
+    })
     .then(response => response)
     .catch(erro => erro);
 }
@@ -45,4 +48,22 @@ export function casaSuja(casa) {
     })
     .then(response => response)
     .catch(erro => erro);
+}
+
+export function InserirPA(cliente_id, casa_id, horas) {
+  return axios
+    .post(
+      //'http://localhost:3001/clientes/create',
+      'http://localhost:3001/palmoco/create',
+      {
+        palmoco: {
+          cliente_id,
+          casa_id,
+          horas,
+        },
+      },
+      true,
+    )
+    .then(response => response)
+    .catch(response => response);
 }

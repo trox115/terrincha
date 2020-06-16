@@ -11,7 +11,9 @@ export function getProdutos() {
 
 export function getCasas() {
   return axios
-    .get('http://localhost:3001/casas/index', { withCredentials: true })
+    .get('http://localhost:3001/casas/index', {
+      withCredentials: true,
+    })
     .then(response => response)
     .catch(erro => erro);
 }
