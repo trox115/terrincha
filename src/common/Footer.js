@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -12,16 +13,15 @@ import Carrinho from '../assets/icones/5.png';
 import * as logout from '../actions/Actions';
 import { casaSuja } from '../Api/criarCliente';
 
-function Footer({ logout, user }) {
-  console.log(user[1]);
+function Footer({ logout, user, history }) {
+  const [conta, setConta] = useState(5);
   function startChat() {
     const a = document.getElementById('zsiq_float');
     const b = document.getElementsByClassName('zsiq_floatmain');
-    console.log(a.style.visibility);
-    if (a.style.visibility === 'hidden') {
-      a.style.visibility = 'visible';
+    if (a.style.display === 'block') {
+      a.style.display = 'none';
     } else {
-      a.style.visibility = 'hidden';
+      a.style.display = 'block';
     }
   }
 
@@ -35,19 +35,26 @@ function Footer({ logout, user }) {
   }
 
   function checkout() {
-    casaSuja(user[1].id)
-      .then(() => logout())
-      .catch(error => error);
+    console.log(conta);
+    if (conta <= 0) {
+      casaSuja(user[1].id)
+        .then(() => logout())
+        .catch(error => error);
+    } else {
+      setConta(conta - 1);
+    }
   }
 
   return (
     <FooterEl className="fixed-bottom">
       <Container>
         <Row>
-          <Col md="1" />
-          <Col md="2" onClick={checkout}>
-            <img src={Checkout} alt="Checkout" />
-            <p>Checkout</p>
+          <Col md="1" onClick={checkout} />
+          <Col md="2">
+            <Link to="/">
+              <img src={Checkout} alt="Checkout" />
+              <p>Retroceder</p>
+            </Link>
           </Col>
           <Col md="2" onClick={startChat}>
             <img src={Chat} alt="Checkout" />

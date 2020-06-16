@@ -28,7 +28,7 @@ function inserirEncomenda(cliente_id, produto_id, quantidade) {
   console.log(cliente_id);
   return axios
     .post(
-      'https://terrinchapi.herokuapp.com/encomenda/create',
+      'http://localhost:3001/encomenda/create',
       {
         encomenda: {
           cliente_id,

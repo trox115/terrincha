@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const baseUrl = 'https://terrinchapi.herokuapp.com/produtos/index';
+const baseUrl = 'http://localhost:3001/produtos/index';
 
 export function getProdutos() {
   return axios
@@ -11,7 +11,7 @@ export function getProdutos() {
 
 export function getCasas() {
   return axios
-    .get('https://terrinchapi.herokuapp.com/casas/index', {
+    .get('http://localhost:3001/casas/index', {
       withCredentials: true,
     })
     .then(response => response)

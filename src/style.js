@@ -90,6 +90,10 @@ text-align:center;
 color:#B3B2B2;
 border-radius:15px 15px 0 0;
 margin-top:120px;
+
+a{
+  color:#B3B2B2;
+}
 img{
   height:70px;
 }
