@@ -8,6 +8,7 @@ import * as productActions from '../../actions/Actions';
 /* eslint-disable object-curly-newline */
 import { Produtos, ImagePlaceholder, PrecoCompra, Compra } from '../../style';
 import Carrinho from '../../assets/icones/5.png';
+import { ToastContainer, toast } from 'react-toastify';
 
 function Modal({ ...props }) {
   const { produto, insertCart } = props;
@@ -23,11 +24,24 @@ function Modal({ ...props }) {
     setqtdd({ [event.target.name]: event.target.value });
   }
 
+  function sendToast() {
+    toast.success(`O produto foi adicionado ao carrinho`, {
+      position: 'top-right',
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
+  }
+
   function handleSubmit(event) {
     event.preventDefault();
     const compra = produto;
     compra.quantidade = qtdd.quantidade;
     insertCart([compra]);
+    sendToast();
   }
 
   return (
@@ -71,6 +85,7 @@ function Modal({ ...props }) {
             </Col>
           </Row>
         </Container>
+        <ToastContainer autoClose={8000} />
       </div>
     </div>
   );
