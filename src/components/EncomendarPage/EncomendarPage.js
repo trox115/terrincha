@@ -76,7 +76,7 @@ function EncomendarPage({ ...props }) {
         <Row>
           <Modal produto={modal.produto} />
           <InfoHeader>
-            <h1>Encomende e leve para casa</h1>
+            <h1>Produtos da Quinta</h1>
             <img src={Entrega} alt="icone de entrega" />
           </InfoHeader>
 
