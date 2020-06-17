@@ -61,9 +61,9 @@ function Modal({ ...props }) {
                 <div>
                   <h1 className="titulo">{produto.nome}</h1>
                   <h2 className="designacao">{produto.descricao}</h2>
-                  <p>{produto.ano}</p>
+                  <span>{produto.ano}</span><span className="preco">{`${produto.preco}€`}</span>
                   <PrecoCompra>
-                    <p className="preco">{`${produto.preco}€`}</p>
+                    
                     <input
                       type="number"
                       step="1"
@@ -72,7 +72,7 @@ function Modal({ ...props }) {
                       onChange={handleChange}
                     />
                     <Compra onClick={handleSubmit}>
-                      Adicionar ao Carrinho
+                      Adicionar
                       <img src={Carrinho} alt="carrinho" />
                     </Compra>
                   </PrecoCompra>
