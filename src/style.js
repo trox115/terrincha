@@ -50,16 +50,25 @@ color:#282828;
     font-size:25px;
     margin-top:0px;
 }
+span{
+  height:50px;
+  line-height:50px;
+  vertical-align:middle;
+  font-size:18px;
+  margin-right:10px;
+
+}
 .preco{
   color:white;
   height:50px;
   line-height:50px;
   background-color:#D4B773;
-  padding:0 10px 0 10px;
+  padding:10px;
   border-radius:10px;
   vertical-align:middle;
-  font-size:20px;
+  font-size:18px;
 }
+
 
 img{
   height:390px;
@@ -144,12 +153,13 @@ input{
 `;
 
 export const Compra = style.button`
-font-size:25px;
+font-size:20px;
 background-color:#E84865;
+margin-top:10px;
 color:white;
 border:none;
 height:50px;
-margin-left:10px;
+margin-left:5px;
 border-radius:10px;
  padding:0 20px 0 20px;
 display:flex;
