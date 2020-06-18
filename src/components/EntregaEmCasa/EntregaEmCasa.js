@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useState} from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import Col from 'react-bootstrap/Col';
@@ -14,15 +14,33 @@ import {
   PrecoCompra,
   Compra,
 } from '../../style';
-import Entrega from '../../assets/img/5.png';
+import Entrega from '../../assets/img/2.png';
 import Carrinho from '../../assets/icones/5.png';
 
 function EntregaEmCasa({ ...props }) {
+	const [modal, setModal] = useState({
+    opened: false,
+    produto: { nome: '', preco: 0 },
+  });
   return (
-    <div>
-      <h1>I'm the PLACEHOLDER component</h1>
-    </div>
+    <GiveMargin>
+      <Container>
+        <Row>
+          <Modal produto={modal.produto} />
+          <InfoHeader>
+            <h1>Entrega em Casa</h1>
+            <img src={Entrega} alt="icone de entrega" />
+          </InfoHeader>
+
+
+        </Row>
+      </Container>
+    </GiveMargin>
   );
+}
+
+function mapStateToProps(){
+	
 }
 
 export default EntregaEmCasa;

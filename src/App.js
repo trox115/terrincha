@@ -5,6 +5,8 @@ import ProtectedRoute from './containers/protected.route';
 import HomePage from './components/HomePage/HomePage';
 import ContactosUteis from './components/ContactosUteis/ContactosUteis';
 import EncomendarPage from './components/EncomendarPage/EncomendarPage';
+import EntregaEmCasa from './components/EntregaEmCasa/EntregaEmCasa';
+import Restaurante from './components/Restaurante/Restaurante';
 import NavegacaoPage from './components/NavegacaoPage/NavegacaoPage';
 import Wifi from './components/Wifi/wifi';
 import Sociais from './components/Sociais/Sociais';
@@ -24,6 +26,7 @@ function App() {
         <Route exact path="/checkin" component={CheckIn} />
         <ProtectedRoute exact path="/" component={HomePage} />
         <ProtectedRoute exact path="/wifi" component={Wifi} />
+        <ProtectedRoute exact path="/restaurante" component={Restaurante} />
         <ProtectedRoute exact path="/pequenoalmoco" component={PequenoAlmoco} />
         <ProtectedRoute
           exact
@@ -31,6 +34,7 @@ function App() {
           component={atividadesQuinta}
         />
         <ProtectedRoute exact path="/sociais" component={Sociais} />
+        <ProtectedRoute exact path="/entrega" component={EntregaEmCasa} />
         <ProtectedRoute exact path="/encomendar" component={EncomendarPage} />
         <ProtectedRoute exact path="/navegacao" component={NavegacaoPage} />
         <ProtectedRoute exact path="/contactos" component={ContactosUteis} />
