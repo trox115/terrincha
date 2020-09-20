@@ -30,9 +30,9 @@ function HomePage() {
             </Link>
           </Col>
           <Col md="6">
-            <Link to="/navegacao">
+            <Link to="/entrega">
               <Cartao>
-                <h1>Escolha e será entregue em sua casa</h1>
+                <h1>Entrega em Casa</h1>
                 <img src={EntregaCasa} alt="icone-navegacao" />
               </Cartao>
             </Link>
@@ -66,6 +66,22 @@ function HomePage() {
               <Cartao>
                 <h1>Horas de Pequeno Almoço</h1>
                 <img src={Pequeno} alt="icone-pequenoalmoço" />
+              </Cartao>
+            </Link>
+          </Col>
+          <Col md="6">
+            <Link to="/restaurante">
+              <Cartao>
+                <h1>Restaurante</h1>
+                <img src={EntregaCasa} alt="icone-navegacao" />
+              </Cartao>
+            </Link>
+          </Col>
+          <Col md="6">
+            <Link to="/contactos">
+              <Cartao>
+                <h1>Menus Degustação</h1>
+                <img src={Encomendar} alt="icone-navegacao" />
               </Cartao>
             </Link>
           </Col>

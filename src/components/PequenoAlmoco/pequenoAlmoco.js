@@ -1,15 +1,16 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Container from 'react-bootstrap/Container';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import Button from 'react-bootstrap/Button';
 import styled from 'styled-components';
-import { InfoHeader, GiveMargin } from '../../style';
-import Pequeno from '../../assets/img/6.png';
 import setHours from 'date-fns/setHours';
 import setMinutes from 'date-fns/setMinutes';
 import DatePicker from 'react-datepicker';
+import Pequeno from '../../assets/img/6.png';
+import { InfoHeader, GiveMargin } from '../../style';
 import 'react-datepicker/dist/react-datepicker.css';
 import { InserirPA } from '../../Api/criarCliente.js';
 
@@ -129,7 +130,11 @@ function PequenoAlmoco({ ...props }) {
           <Col md="12">
             <Cartao2>
               <InfoHeader2>
-                <p>Estimado(a) {user[0].name},</p>
+                <p>
+                  Estimado(a)
+                  {user[0].name}
+                  ,
+                </p>
                 <p>
                   Tendo em consideração o momento que vivemos e de modo a
                   proteger a sua saúde, informamos que o pequeno-almoço será
@@ -183,4 +188,7 @@ function mapStateToProps(state) {
   };
 }
 
+PequenoAlmoco.propTypes = {
+  user: PropTypes.instanceOf(Array).isRequired,
+};
 export default connect(mapStateToProps, null)(PequenoAlmoco);
