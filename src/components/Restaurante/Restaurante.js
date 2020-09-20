@@ -10,7 +10,7 @@ import styled from 'styled-components';
 import setHours from 'date-fns/setHours';
 import setMinutes from 'date-fns/setMinutes';
 import DatePicker from 'react-datepicker';
-import Atividades from '../../assets/img/3.png';
+import Atividades from '../../assets/img/2.png';
 import { InfoHeader, GiveMargin } from '../../style';
 import 'react-datepicker/dist/react-datepicker.css';
 import { InserirPA } from '../../Api/criarCliente.js';
@@ -73,6 +73,7 @@ export const Cartao2 = styled.div`
 
 const InfoHeader3 = styled.div`
   width: 100%;
+  display:flex;
   background-color: white;
   text-align: center;
   align-items: center;
@@ -125,15 +126,19 @@ export const Compra = styled.button`
   justify-content: center;
 `;
 
-function AtividadesQuinta({ ...props }) {
+function Restaurante({ ...props }) {
   const { user } = props;
   const [count, setCount] = useState(0);
+  const [pessoas, setPessoas] = useState(1)
+
+
+
 
   useEffect(() => {
     if (count !== 0) {
       const a = document.getElementById('siqiframe').contentWindow.document;
       const b = a.getElementById('msgarea');
-      b.value = 'Boa tarde gostaria de saber mais acerca das atividades da Quinta ';
+      b.value = `Olá, gostaria de fazer uma reserva no restaurante para ${pessoas} pessoas`;
       b.focus();
       setCount(2);
     }
@@ -152,11 +157,9 @@ function AtividadesQuinta({ ...props }) {
     }
   }
   function teste() {
-    console.log('fdp');
     setCount(1);
   }
   const write = async (a, b) => {
-    console.log('hey');
     eventFire(a, b);
     teste();
   };
@@ -170,6 +173,11 @@ function AtividadesQuinta({ ...props }) {
       evObj.initEvent(etype, true, false);
       el.dispatchEvent(evObj);
     }
+  }
+
+  function handleChange(event){
+    setPessoas(event.target.value)
+    console.log(pessoas)
   }
 
   function handleClick() {
@@ -191,7 +199,7 @@ function AtividadesQuinta({ ...props }) {
         <Row>
           <Col md="12">
             <InfoHeader>
-              <h1>Atividades na Quinta</h1>
+              <h1>Restaurante</h1>
               <img src={Atividades} alt="icone de Atividades" />
             </InfoHeader>
           </Col>
@@ -202,41 +210,65 @@ function AtividadesQuinta({ ...props }) {
                   <Card>
                     <Card.Header>
                       <Accordion.Toggle as={Button} variant="link" eventKey="0">
-                        <h1>Prova Rústica</h1>
+                        <h1>Proposta 1 - 30€/Pessoa</h1>
                       </Accordion.Toggle>
                     </Card.Header>
                     <Accordion.Collapse eventKey="0">
                       <Card.Body>
-                        <li>Pão Regional</li>
-                        <li>Água Mineral</li>
-                        <li>Queijo de ovelha Terrincha Meia Cura</li>
-                        <li>Azeite Virgem Extra</li>
-                        <li>Vinho Quinta da Terrincha Doc Douro Branco</li>
-                        <li>Vinho Quinta da Terrincha Doc Douro Rosé</li>
-                        <li>Vinho Quinta da Terrincha Doc Douro Tinto</li>
-                        <li>Vinho Terras da Vilariça Doc Douro Tinto</li>
-                      </Card.Body>
+                        <li>Entradas Regionais</li>
+                        <li>1 Prato principal
+                        <ul>
+                        <li>Arroz de Pato com laranja</li>
+                        <li>Bacalhau Assado com Crosta de Broa</li>
+                        </ul>
+                        </li>
+                        <li>Sobremesas
+<ul>
+                        <li>Doces</li>
+                        <li>Fruta da Epoca</li>
+                        </ul>
+                        </li>
+                        <li>Bebidas
+                        <ul>
+                        <li>Quinta da Terrincha Tinto Colheira</li>
+                        <li>Terrincha Rosé Colheita</li>
+                        <li>Terrincha Branco Colheita</li>
+                        <li>Águas, Refrigerentes, Café</li>
+                        </ul>
+                        </li>
+                         </Card.Body>
                     </Accordion.Collapse>
                   </Card>
                   <Card>
                     <Card.Header>
                       <Accordion.Toggle as={Button} variant="link" eventKey="1">
-                        <h1>Prova Vintage</h1>
+                        <h1>Proposta 2 - 35€/Pessoa</h1>
                       </Accordion.Toggle>
                     </Card.Header>
                     <Accordion.Collapse eventKey="1">
                       <Card.Body>
-                        <li>Pão Regional</li>
-                        <li>Bola de Carne Caseira</li>
-                        <li>Água Mineral</li>
-                        <li>Variedade de Compotas da Terrincha</li>
-                        <li>Queijo de ovelha Terrincha Meia Cura</li>
-                        <li>Azeite Virgem Extra</li>
-                        <li>Vinho Quinta da Terrincha Doc Douro Branco</li>
-                        <li>Vinho Quinta da Terrincha Doc Douro Rosé</li>
-                        <li>Vinho Quinta da Terrincha Doc Douro Tinto</li>
-                        <li>Vinho Quinta da Terrincha Tinto Lote T14</li>
-                      </Card.Body>
+                        <li>Entradas Regionais</li>
+                        <li>1 Prato principal
+                        <ul>
+                        <li>Posta de Vitela</li>
+                        <li>Polvo Afogado em Azeite</li>
+                        </ul>
+                        </li>
+                        <li>Sobremesas
+<ul>
+                        <li>Doces</li>
+                        <li>Fruta da Epoca</li>
+                        </ul>
+                        </li>
+                        <li>Bebidas
+                        <ul>
+                        <li>Quinta da Terrincha Tinto Colheira</li>
+                        <li>Terrincha Rosé Colheita</li>
+                        <li>Terrincha Branco Colheita</li>
+                        <li>Águas, Refrigerentes, Café</li>
+                        </ul>
+                        </li>
+                         </Card.Body>
                     </Accordion.Collapse>
                   </Card>
                 </Accordion>
@@ -245,7 +277,9 @@ function AtividadesQuinta({ ...props }) {
 
             <Cartao3>
               <InfoHeader3>
-                <Compra onClick={handleClick}> Pedir Mais Informações </Compra>
+              <input type='number' onChange={handleChange} name='people' placeholder='numero de pessoas'/>
+                <Compra onClick={handleClick}>Reservar</Compra>
+              
               </InfoHeader3>
             </Cartao3>
           </Col>
@@ -264,4 +298,4 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps, null)(AtividadesQuinta);
+export default connect(mapStateToProps, null)(Restaurante);

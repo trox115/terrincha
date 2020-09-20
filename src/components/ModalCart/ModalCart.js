@@ -7,9 +7,9 @@ import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 /* eslint-disable object-curly-newline */
 import styled from 'styled-components';
+import { ToastContainer, toast } from 'react-toastify';
 import * as productActions from '../../actions/Actions';
 import { Compra } from '../../style';
-import { ToastContainer, toast } from 'react-toastify';
 
 const Tbl = styled.table`
   width: 100%;
@@ -49,7 +49,7 @@ const UltimoPasso = styled.div`
 
 function ModalCart({ ...props }) {
   function sendToast() {
-    toast.success(`A sua encomenda estará á sua espera na recepção`, {
+    toast.success('A sua encomenda estará á sua espera na recepção', {
       position: 'top-right',
       autoClose: 5000,
       hideProgressBar: false,
@@ -89,11 +89,17 @@ function ModalCart({ ...props }) {
     <tr key={produto.id}>
       <td>{produto.nome}</td>
       <td>{produto.quantidade}</td>
-      <td>{produto.preco}€</td>
+      <td>
+        {produto.preco}
+        €
+      </td>
       <td>
         <img src={`/vinhos/${produto.imagem}`} alt="" />
       </td>
-      <td>{parseInt(produto.quantidade, 10) * parseInt(produto.preco, 10)}€</td>
+      <td>
+        {parseInt(produto.quantidade, 10) * parseInt(produto.preco, 10)}
+        €
+      </td>
       <td>
         <span className="remover">&times;</span>
       </td>
@@ -125,7 +131,8 @@ function ModalCart({ ...props }) {
             <UltimoPasso>
               <h4>
                 Total:
-                {total}€
+                {total}
+                €
               </h4>
               <Compra onClick={handleClick}>Finalizar</Compra>
             </UltimoPasso>

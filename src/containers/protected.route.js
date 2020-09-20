@@ -41,9 +41,7 @@ ProtectedRoute.propTypes = {
   location: PropTypes.shape({
     search: PropTypes.string.isRequired,
   }).isRequired,
-  component: PropTypes.shape({
-    WrappedComponent: PropTypes.func.isRequired,
-  }).isRequired,
+  component: PropTypes.func.isRequired,
 };
 
 export default connect(mapStateToProps, null)(ProtectedRoute);

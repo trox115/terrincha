@@ -50,16 +50,33 @@ color:#282828;
     font-size:25px;
     margin-top:0px;
 }
+span{
+  height:50px;
+  line-height:50px;
+  vertical-align:middle;
+  font-size:18px;
+  margin-right:10px;
+
+}
+p{
+  height:50px;
+  line-height:50px;
+  vertical-align:middle;
+  font-size:18px;
+  margin-right:10px;
+
+}
 .preco{
   color:white;
   height:50px;
   line-height:50px;
   background-color:#D4B773;
-  padding:0 10px 0 10px;
+  padding:10px;
   border-radius:10px;
   vertical-align:middle;
-  font-size:20px;
+  font-size:18px;
 }
+
 
 img{
   height:390px;
@@ -135,26 +152,30 @@ margin-left:10px;
 
 export const PrecoCompra = style.div`
 display:flex;
-
+align-items:center;
+justify-content:center;
 input{
       width: 80px;
-    height: 50px;
-    margin-left: 40px;
+    min-height: 50px;
+    margin-right:10px;
+    border:none;
+    border-bottom:1px solid #E84865;
+    vertical-align:bottom;
+    font-size:25px;
 }
 `;
 
 export const Compra = style.button`
-font-size:25px;
+font-size:20px;
 background-color:#E84865;
+margin-top:10px;
 color:white;
 border:none;
-height:50px;
-margin-left:10px;
+min-height:50px;
+
 border-radius:10px;
  padding:0 20px 0 20px;
 display:flex;
-align-itens:center;
-justify-content:center;
 img{
   float:right;
   max-height:38px;

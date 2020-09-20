@@ -32,7 +32,7 @@ const Hidding = styled.div`
 
 function Wifi() {
   function handleClick() {
-    var x = document.getElementById('qrcode');
+    const x = document.getElementById('qrcode');
 
     if (x.style.display === 'none') {
       x.style.display = 'block';

@@ -4,11 +4,11 @@ import { connect } from 'react-redux';
 import Container from 'react-bootstrap/Container';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
+import { ToastContainer, toast } from 'react-toastify';
 import * as productActions from '../../actions/Actions';
 /* eslint-disable object-curly-newline */
 import { Produtos, ImagePlaceholder, PrecoCompra, Compra } from '../../style';
 import Carrinho from '../../assets/icones/5.png';
-import { ToastContainer, toast } from 'react-toastify';
 
 function Modal({ ...props }) {
   const { produto, insertCart } = props;
@@ -25,7 +25,7 @@ function Modal({ ...props }) {
   }
 
   function sendToast() {
-    toast.success(`O produto foi adicionado ao carrinho`, {
+    toast.success('O produto foi adicionado ao carrinho', {
       position: 'top-right',
       autoClose: 5000,
       hideProgressBar: false,
@@ -61,9 +61,9 @@ function Modal({ ...props }) {
                 <div>
                   <h1 className="titulo">{produto.nome}</h1>
                   <h2 className="designacao">{produto.descricao}</h2>
-                  <p>{produto.ano}</p>
+                  <span>{produto.ano}</span><span className="preco">{`${produto.preco}€`}</span>
                   <PrecoCompra>
-                    <p className="preco">{`${produto.preco}€`}</p>
+                    
                     <input
                       type="number"
                       step="1"
@@ -72,7 +72,7 @@ function Modal({ ...props }) {
                       onChange={handleChange}
                     />
                     <Compra onClick={handleSubmit}>
-                      Adicionar ao Carrinho
+                      Adicionar
                       <img src={Carrinho} alt="carrinho" />
                     </Compra>
                   </PrecoCompra>

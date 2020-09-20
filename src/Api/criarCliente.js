@@ -2,11 +2,15 @@ import axios from 'axios';
 
 export function registoCli({ ...props }) {
   // eslint-disable-next-line camelcase
-  const { email, name, phone, password, password_confirmation } = props;
+  /* eslint-disable camelcase */
+
+  const {
+    email, name, phone, password, password_confirmation,
+  } = props;
 
   return axios
     .post(
-      //'http://localhost:3001/clientes/create',
+      // 'http://localhost:3001/clientes/create',
       'http://localhost:3001/clientes/create',
       {
         user: {
@@ -53,7 +57,7 @@ export function casaSuja(casa) {
 export function InserirPA(cliente_id, casa_id, horas) {
   return axios
     .post(
-      //'http://localhost:3001/clientes/create',
+      // 'http://localhost:3001/clientes/create',
       'http://localhost:3001/palmoco/create',
       {
         palmoco: {
